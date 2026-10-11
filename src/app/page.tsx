@@ -1,5 +1,5 @@
 import { Hero } from "@/components/home/hero";
-import { BigCta, CategoryBento, PackConfigurator, ProductTabs, Reassurance, ServiceBlock, Stats, Testimonials, TrustBlock, VideoGallery, WeeklyPromos } from "@/components/home/sections";
+import { BigCta, CategoryBento, PackConfigurator, ProductTabs, Reassurance, ServiceBlock, Stats, Testimonials, TrustBlock, VideoGallery } from "@/components/home/sections";
 import { StoresMap } from "@/components/home/stores-map";
 import { BlogCards } from "@/components/home/blog-cards";
 import { SectionHeading, Reveal } from "@/components/ui/reveal";
@@ -12,7 +12,6 @@ export default function HomePage() {
     <>
       <Hero />
       <Reassurance />
-      <WeeklyPromos />
 
       {/* Manifeste */}
       <section className="container-x mt-32">

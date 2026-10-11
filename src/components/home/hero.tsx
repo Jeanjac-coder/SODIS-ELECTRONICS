@@ -9,6 +9,7 @@ import { ArrowRight, Pause, Play, ShieldCheck, Truck, Wrench } from "lucide-reac
 import { ButtonLink } from "@/components/ui/button";
 import { CategoryIcon } from "@/components/ui/misc";
 import { InlineSearch } from "@/components/widgets/search";
+import { HeroPromos } from "@/components/home/sections";
 import { categories } from "@/data/categories";
 import { waLink } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -135,7 +136,7 @@ export function Hero() {
         <div className="absolute left-1/2 top-0 h-px w-[80%] -translate-x-1/2 bg-gradient-to-r from-transparent via-line to-transparent" />
       </div>
 
-      <div className="container-x grid items-center gap-10 pb-10 lg:min-h-[calc(100svh-15rem)] lg:grid-cols-12 lg:gap-6">
+      <div className="container-x grid items-center gap-10 pb-10 lg:min-h-[calc(100svh-24rem)] lg:grid-cols-12 lg:gap-6">
         {/* Texte */}
         <div className="h-scroll-fast relative z-10 lg:col-span-7" aria-live="polite">
           <p className="h-eyebrow eyebrow mb-6">{s.eyebrow}</p>
@@ -170,7 +171,7 @@ export function Hero() {
 
         {/* Visuel */}
         <div className="relative lg:col-span-5">
-          <div className="h-parallax relative mx-auto aspect-square w-full max-w-[520px]">
+          <div className="h-parallax relative mx-auto aspect-square w-full max-w-[320px] sm:max-w-[420px] lg:max-w-[520px]">
             <div aria-hidden className={cn("h-glow absolute inset-[8%] rounded-full bg-radial blur-3xl", s.glow)} />
             <div aria-hidden className="absolute inset-[14%] rounded-full border border-line/70" />
             <div aria-hidden className="absolute inset-[26%] rounded-full border border-line/50" />
@@ -218,9 +219,11 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Recherche intelligente + catégories rapides (glassmorphism) */}
-      <div className="container-x relative z-20 -mt-4 pb-6">
+      {/* Promotions de la semaine + recherche intelligente + catégories rapides (glassmorphism) */}
+      <div className="container-x relative z-20 mt-4 pb-6 lg:-mt-4">
         <div className="glass rounded-[32px] border border-white/60 p-4 shadow-[0_30px_80px_-30px_rgb(0_0_0/0.25)] dark:border-white/10 sm:p-5">
+          <HeroPromos />
+          <div className="my-4 h-px bg-line/70" />
           <InlineSearch />
           <nav aria-label="Catégories rapides" className="no-scrollbar mt-4 flex gap-2 overflow-x-auto">
             {categories.map((c) => (

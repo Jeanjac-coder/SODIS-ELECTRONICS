@@ -147,6 +147,59 @@ export const weeklyPromos = [
   { slug: "f4v5rgp2t", label: "Installation offerte", note: "Raccordement inclus" },
 ];
 
+/** Version compacte intégrée au Hero : bandeau défilant des promotions de la semaine */
+export function HeroPromos() {
+  const [end, setEnd] = useState(0);
+  useEffect(() => setEnd(endOfWeek()), []);
+  const t = useCountdown(end);
+  return (
+    <div aria-labelledby="hero-promos-title">
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-3 px-1">
+        <h2 id="hero-promos-title" className="flex items-center gap-2 font-display text-[18px] font-semibold tracking-tight sm:text-[20px]">
+          <span className="grid h-7 w-7 place-items-center rounded-full bg-red text-white">
+            <Zap className="h-3.5 w-3.5" />
+          </span>
+          Les promotions de la semaine
+        </h2>
+        <div className="flex items-center gap-3">
+          <p className="flex items-center gap-1 text-[12px] text-muted" role="timer" aria-label="Temps restant">
+            <span className="hidden sm:inline">Fin dans</span>
+            {(["d", "h", "m", "s"] as const).map((k) => (
+              <span key={k} className="rounded-lg bg-ink px-1.5 py-1 font-mono text-[12px] font-semibold tabular-nums text-bg">
+                {t.ready ? String(t[k]).padStart(2, "0") : "--"}
+                {k === "d" ? "j" : k}
+              </span>
+            ))}
+          </p>
+          <Link href="/promotions" className="hidden items-center gap-1 text-[13px] font-medium text-ink hover:text-red sm:inline-flex">
+            Tout voir <ArrowUpRight className="h-3.5 w-3.5" />
+          </Link>
+        </div>
+      </div>
+      <ul className="no-scrollbar -mx-1 flex snap-x gap-3 overflow-x-auto px-1 pb-1 [mask-image:linear-gradient(90deg,#000_92%,transparent)]">
+        {weeklyPromos.map((o) => {
+          const p = getProduct(o.slug);
+          if (!p) return null;
+          return (
+            <li key={o.slug} className="w-[250px] shrink-0 snap-start sm:w-[270px]">
+              <Link href={`/produits/${p.slug}`} className="group flex h-full items-center gap-3 rounded-2xl border border-line/80 bg-elev/80 p-2.5 pr-4 transition hover:border-ink hover:shadow-lg">
+                <span className="relative grid h-16 w-16 shrink-0 place-items-center overflow-hidden rounded-xl bg-soft">
+                  <Image src={p.image} alt="" width={64} height={64} className="h-12 w-12 object-contain transition duration-700 group-hover:scale-110" />
+                </span>
+                <span className="min-w-0">
+                  <span className="block truncate text-[11px] font-semibold uppercase tracking-wider text-red">{o.label}</span>
+                  <span className="mt-0.5 block truncate text-[13px] font-medium text-ink">{p.name}</span>
+                  <span className="block truncate text-[11px] text-muted">{o.note}</span>
+                </span>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
+
 export function WeeklyPromos() {
   const [end, setEnd] = useState(0);
   useEffect(() => setEnd(endOfWeek()), []);
