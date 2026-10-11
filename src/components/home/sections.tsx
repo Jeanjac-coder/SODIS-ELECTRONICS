@@ -16,6 +16,7 @@ import { ButtonLink } from "@/components/ui/button";
 import { CategoryIcon } from "@/components/ui/misc";
 import { PaymentLogos } from "@/components/ui/payments";
 import { ProductRail } from "@/components/product/product-extras";
+import { ProductCard } from "@/components/product/product-card";
 import { MessengerIcon, WhatsAppIcon } from "@/components/widgets/icons";
 
 /* ───────────── Bandeau de réassurance ───────────── */
@@ -134,9 +135,77 @@ function endOfWeek() {
 export const flashOffers = [
   { slug: "s4-q12jaqal", label: "Installation offerte", note: "Pose standard incluse" },
   { slug: "55ua73006la", label: "Fixation murale offerte", note: "Support + pose" },
-  { slug: "s60tr", label: "Pack TV + barre de son", note: "Prix pack sur devis" },
+  { slug: "s60tr", label: "Prix pack TV + barre", note: "Sur devis" },
   { slug: "xl7t", label: "Livraison offerte Abidjan", note: "Sous 48 h" },
 ];
+/** Promotions de la semaine (page d'accueil) — à mettre à jour chaque semaine */
+export const weeklyPromos = [
+  ...flashOffers,
+  { slug: "oled65c56la", label: "Installation offerte", note: "Fixation + réglages" },
+  { slug: "s65tr", label: "Livraison offerte", note: "Partout à Abidjan" },
+  { slug: "gr-f882hlhm", label: "Livraison offerte", note: "Mise en service incluse" },
+  { slug: "f4v5rgp2t", label: "Installation offerte", note: "Raccordement inclus" },
+];
+
+export function WeeklyPromos() {
+  const [end, setEnd] = useState(0);
+  useEffect(() => setEnd(endOfWeek()), []);
+  const t = useCountdown(end);
+  return (
+    <section id="promotions-semaine" className="container-x mt-24 scroll-mt-28" aria-labelledby="weekly-title">
+      <div className="mb-12 flex flex-col gap-8 md:mb-14 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <Reveal>
+            <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-red px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-white">
+              <Zap className="h-3.5 w-3.5" /> Cette semaine
+            </p>
+          </Reveal>
+          <Reveal delay={0.05}>
+            <h2 id="weekly-title" className="h-section text-balance">
+              Les promotions de la semaine
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="lead mt-4 max-w-xl">Installation, fixation murale ou livraison offertes sur une sélection LG. Dans la limite des stocks disponibles — faut pas dormir dessus !</p>
+          </Reveal>
+        </div>
+        <div className="flex flex-col gap-3 lg:items-end">
+          <p className="text-[12px] font-medium uppercase tracking-[0.18em] text-muted">Fin des offres dans</p>
+          <div className="flex gap-2" aria-label="Temps restant" role="timer">
+            {(["d", "h", "m", "s"] as const).map((k) => (
+              <div key={k} className="w-[68px] rounded-2xl bg-ink py-2.5 text-center text-bg">
+                <span className="block font-display text-2xl font-semibold tabular-nums">{t.ready ? String(t[k]).padStart(2, "0") : "--"}</span>
+                <span className="text-[10px] uppercase tracking-wider opacity-60">{{ d: "jours", h: "heures", m: "min", s: "sec" }[k]}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 lg:grid-cols-4">
+        {weeklyPromos.map((o, i) => {
+          const p = getProduct(o.slug);
+          if (!p) return null;
+          return (
+            <div key={o.slug} className="flex w-[78vw] shrink-0 snap-start flex-col gap-2 sm:w-auto">
+              <p className="flex items-center justify-between gap-2 rounded-full bg-red/10 px-4 py-2 text-[12px] font-semibold text-red">
+                <span className="flex shrink-0 items-center gap-1.5 whitespace-nowrap">
+                  <Zap className="h-3.5 w-3.5" /> {o.label}
+                </span>
+                <span className="min-w-0 truncate font-normal text-ink-soft">{o.note}</span>
+              </p>
+              <ProductCard product={p} index={i} />
+            </div>
+          );
+        })}
+      </div>
+      <div className="mt-10 flex justify-center">
+        <ButtonLink href="/promotions" variant="outline" size="lg">
+          Voir toutes les promotions <ArrowUpRight className="h-4 w-4" />
+        </ButtonLink>
+      </div>
+    </section>
+  );
+}
 export function FlashDeals({ compact }: { compact?: boolean }) {
   const [end, setEnd] = useState(0);
   useEffect(() => setEnd(endOfWeek()), []);
