@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle2, Loader2 } from "lucide-react";
+import { CheckCircle2, Loader2, Mail } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { waLink } from "@/config/site";
+import { site, waLink } from "@/config/site";
 import { WhatsAppIcon } from "@/components/widgets/icons";
 
 export function Field({ label, error, children, className, hint }: { label: string; error?: string; children: React.ReactNode; className?: string; hint?: string }) {
@@ -63,7 +63,7 @@ export function SubmitButton({ pending, children, className }: { pending: boolea
   );
 }
 
-export function SuccessPanel({ title, body, refId, delivered, whatsappText }: { title: string; body: string; refId?: string; delivered?: boolean; whatsappText?: string }) {
+export function SuccessPanel({ title, body, refId, delivered, whatsappText, emailSubject }: { title: string; body: string; refId?: string; delivered?: boolean; whatsappText?: string; emailSubject?: string }) {
   return (
     <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} className="flex flex-col items-start gap-4 rounded-3xl bg-soft p-8" role="status">
       <CheckCircle2 className="h-10 w-10 text-emerald-500" />
@@ -82,6 +82,14 @@ export function SuccessPanel({ title, body, refId, delivered, whatsappText }: { 
           className="inline-flex h-12 items-center gap-2 rounded-full bg-[#25D366] px-6 text-[14px] font-medium text-white"
         >
           <WhatsAppIcon className="h-5 w-5" /> Envoyer aussi sur WhatsApp
+        </a>
+      )}
+      {!delivered && whatsappText && emailSubject && (
+        <a
+          href={`mailto:${site.email}?subject=${encodeURIComponent(`${emailSubject}${refId ? ` ${refId}` : ""}`)}&body=${encodeURIComponent(`${whatsappText}${refId ? `\nRéf. ${refId}` : ""}`)}`}
+          className="inline-flex h-12 items-center gap-2 rounded-full bg-primary px-6 text-[14px] font-medium text-white"
+        >
+          <Mail className="h-5 w-5" /> Envoyer par email à {site.email}
         </a>
       )}
     </motion.div>

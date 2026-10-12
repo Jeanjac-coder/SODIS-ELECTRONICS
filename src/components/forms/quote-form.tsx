@@ -83,6 +83,7 @@ export function QuoteForm() {
         body={`Merci ${v.name.split(" ")[0]}. Un conseiller SODIS prépare votre offre personnalisée et vous recontacte sous 24 h ouvrées (souvent bien avant).`}
         refId={m.data.ref}
         delivered={m.data.delivered}
+        emailSubject="Demande de devis"
         whatsappText={`Bonjour SODIS, demande de devis (${v.customerType}${v.company ? ` – ${v.company}` : ""}) :\n${v.items
           .map((i) => `• ${i.qty} × ${getProduct(i.slug)?.name ?? i.slug}`)
           .join("\n")}\nBudget : ${v.budget}\nLivraison : ${v.delivery ? "oui" : "non"} · Installation : ${v.installation ? "oui" : "non"}\nVille : ${v.city}`}

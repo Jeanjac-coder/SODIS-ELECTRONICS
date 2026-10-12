@@ -28,5 +28,9 @@ Accueil · Produits (+ fiche produit et fiche technique imprimable pour les 109 
 ## À compléter avant la mise en ligne
 Tout ce qui est marqué **« À CONFIRMER »** / **« à compléter »** dans le code : URL Facebook/LinkedIn/Messenger, chiffres clés, note Google et avis (exemples), mentions légales (RCCM, hébergeur…). Les indicateurs « X visiteurs en ligne » sont **simulés** (`site.liveSignals`).
 
-## Formulaires
-`/api/forms` valide (Zod) puis envoie par email (Resend) et/ou webhook. Sans configuration, la demande est journalisée et l'utilisateur peut la renvoyer sur WhatsApp.
+## Formulaires — réception des devis par email
+Chaque demande de devis est envoyée automatiquement à **serviceclient@sodis-electronics.com** (modifiable via `QUOTE_TO_EMAIL`), avec le détail du client, du projet et des produits. « Répondre » répond directement au client, qui reçoit aussi un accusé de réception.
+
+Pour activer l'envoi, renseignez sur l'hébergement (ex. Vercel → Settings → Environment Variables) les paramètres SMTP de la boîte `serviceclient@` : `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS` (voir `.env.example`). Alternative : `RESEND_API_KEY` + `FORMS_FROM_EMAIL`.
+
+Sans configuration, aucune demande n'est perdue côté client : l'écran de confirmation propose de l'envoyer par email (pré-rempli) ou par WhatsApp.
