@@ -166,8 +166,8 @@ export function Assistant() {
           transition={{ type: "spring", stiffness: 260, damping: 26 }}
           className="fixed bottom-24 right-4 z-[80] flex h-[min(620px,calc(100dvh-8rem))] w-[min(400px,calc(100vw-2rem))] flex-col overflow-hidden rounded-[28px] border border-line bg-elev shadow-2xl sm:right-6"
         >
-          <div className="flex items-center gap-3 border-b border-line bg-ink px-5 py-4 text-bg">
-            <span className="grid h-9 w-9 place-items-center rounded-full bg-red text-white">
+          <div className="flex items-center gap-3 border-b border-line bg-primary px-5 py-4 text-white">
+            <span className="grid h-9 w-9 place-items-center rounded-full bg-secondary text-white">
               <Sparkles className="h-4 w-4" />
             </span>
             <div className="flex-1">
@@ -184,12 +184,12 @@ export function Assistant() {
           <div ref={scroller} className="flex-1 space-y-3 overflow-y-auto p-4" aria-live="polite">
             {msgs.map((m, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className={cn("flex flex-col gap-2", m.from === "me" && "items-end")}>
-                <p className={cn("max-w-[85%] rounded-3xl px-4 py-2.5 text-[14px] leading-relaxed", m.from === "me" ? "rounded-br-md bg-ink text-bg" : "rounded-bl-md bg-soft text-ink")}>{m.text}</p>
+                <p className={cn("max-w-[85%] rounded-3xl px-4 py-2.5 text-[14px] leading-relaxed", m.from === "me" ? "rounded-br-md bg-primary text-white" : "rounded-bl-md bg-soft text-ink")}>{m.text}</p>
                 {m.products?.map((p) => (
                   <div key={p.slug} className="flex w-full items-center gap-3 rounded-2xl border border-line p-2.5">
                     <Image src={p.image} alt="" width={56} height={56} className="h-14 w-14 rounded-xl bg-soft object-contain p-1" />
                     <div className="min-w-0 flex-1">
-                      <Link href={`/produits/${p.slug}`} onClick={() => setOpen(false)} className="line-clamp-1 text-[13px] font-medium hover:text-red">
+                      <Link href={`/produits/${p.slug}`} onClick={() => setOpen(false)} className="line-clamp-1 text-[13px] font-medium hover:text-secondary">
                         {p.name}
                       </Link>
                       <p className="line-clamp-1 text-[11px] text-muted">{p.tagline}</p>
@@ -199,7 +199,7 @@ export function Assistant() {
                         addToQuote(p.slug);
                         toast({ title: "Ajouté au devis", body: p.name, tone: "success" });
                       }}
-                      className="rounded-full bg-ink px-3 py-1.5 text-[11px] font-medium text-bg hover:bg-red hover:text-white"
+                      className="rounded-full bg-primary px-3 py-1.5 text-[11px] font-medium text-white hover:bg-secondary hover:text-white"
                     >
                       + Devis
                     </button>
@@ -208,7 +208,7 @@ export function Assistant() {
                 {m.choices && (
                   <div className="flex flex-wrap gap-2">
                     {m.choices.map((c) => (
-                      <button key={c.value} onClick={() => onChoice(c)} className="rounded-full border border-line bg-elev px-3.5 py-2 text-[13px] text-ink transition hover:border-red hover:text-red">
+                      <button key={c.value} onClick={() => onChoice(c)} className="rounded-full border border-line bg-elev px-3.5 py-2 text-[13px] text-ink transition hover:border-secondary hover:text-secondary">
                         {c.label}
                       </button>
                     ))}
@@ -219,7 +219,7 @@ export function Assistant() {
           </div>
           <form onSubmit={onSubmit} className="flex items-center gap-2 border-t border-line p-3">
             <input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Posez votre question…" aria-label="Votre question" className="h-11 flex-1 rounded-full bg-soft px-4 text-[14px] outline-none" />
-            <button aria-label="Envoyer" className="grid h-11 w-11 place-items-center rounded-full bg-red text-white">
+            <button aria-label="Envoyer" className="grid h-11 w-11 place-items-center rounded-full bg-secondary text-white">
               <Send className="h-4 w-4" />
             </button>
           </form>

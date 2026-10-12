@@ -32,7 +32,7 @@ export default function ServicesPage() {
             <TiltCard className="h-full rounded-[28px]">
               <div className="flex h-full flex-col gap-6 rounded-[28px] border border-line bg-elev p-7">
                 <span className="grid h-12 w-12 place-items-center rounded-2xl bg-soft">
-                  <s.icon className="h-5 w-5 text-red" strokeWidth={1.6} />
+                  <s.icon className="h-5 w-5 text-secondary" strokeWidth={1.6} />
                 </span>
                 <div>
                   <h2 className="text-[18px] font-semibold">{s.title}</h2>

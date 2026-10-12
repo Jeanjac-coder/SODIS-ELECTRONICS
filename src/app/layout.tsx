@@ -54,7 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="min-h-dvh overflow-x-clip">
-        <a href="#contenu" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:text-bg">
+        <a href="#contenu" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-full focus:bg-primary focus:px-5 focus:py-3 focus:text-white">
           Aller au contenu
         </a>
         <Providers>
@@ -82,7 +82,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             image: `${site.url}/opengraph-image`,
             telephone: site.phone,
             email: site.email,
-            address: { "@type": "PostalAddress", addressLocality: site.address.city, addressCountry: site.address.country },
+            address: { "@type": "PostalAddress", streetAddress: site.address.street, addressLocality: site.address.city, addressCountry: site.address.country },
             areaServed: { "@type": "Country", name: "Côte d'Ivoire" },
             sameAs: [site.social.instagram, site.social.facebook, site.social.linkedin],
             brand: { "@type": "Brand", name: "LG" },
@@ -91,7 +91,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               name: s.name,
               telephone: s.phone,
               address: { "@type": "PostalAddress", streetAddress: s.address, addressLocality: s.city, addressCountry: "CI" },
-              geo: { "@type": "GeoCoordinates", latitude: s.lat, longitude: s.lng },
             })),
           }}
         />

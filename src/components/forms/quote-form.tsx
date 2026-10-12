@@ -23,10 +23,10 @@ function Choice({ active, onClick, icon, title, desc }: { active: boolean; onCli
       aria-pressed={active}
       className={cn(
         "flex items-start gap-4 rounded-3xl border p-5 text-left transition duration-300",
-        active ? "border-ink bg-ink text-bg shadow-xl" : "border-line bg-elev hover:border-ink/40",
+        active ? "border-primary bg-primary text-white shadow-xl" : "border-line bg-elev hover:border-primary/40",
       )}
     >
-      <span className={cn("grid h-11 w-11 shrink-0 place-items-center rounded-2xl", active ? "bg-red text-white" : "bg-soft text-ink")}>{icon}</span>
+      <span className={cn("grid h-11 w-11 shrink-0 place-items-center rounded-2xl", active ? "bg-secondary text-white" : "bg-soft text-ink")}>{icon}</span>
       <span>
         <span className="block text-[15px] font-semibold">{title}</span>
         {desc && <span className={cn("mt-1 block text-[13px]", active ? "opacity-70" : "text-muted")}>{desc}</span>}
@@ -102,7 +102,7 @@ export function QuoteForm() {
           <li key={s}>
             <button type="button" onClick={() => i < step && setStep(i)} className="w-full text-left" aria-current={i === step ? "step" : undefined}>
               <span className="block h-1 overflow-hidden rounded-full bg-line">
-                <motion.span className="block h-full bg-red" initial={false} animate={{ width: i <= step ? "100%" : "0%" }} transition={{ duration: 0.5 }} />
+                <motion.span className="block h-full bg-secondary" initial={false} animate={{ width: i <= step ? "100%" : "0%" }} transition={{ duration: 0.5 }} />
               </span>
               <span className={cn("mt-2 block text-[12px] font-medium", i <= step ? "text-ink" : "text-muted")}>
                 {i + 1}. {s}
@@ -193,7 +193,7 @@ export function QuoteForm() {
                             </div>
                           )}
                         />
-                        <button type="button" aria-label="Retirer" onClick={() => items.remove(i)} className="grid h-9 w-9 place-items-center rounded-full text-muted hover:bg-soft hover:text-red">
+                        <button type="button" aria-label="Retirer" onClick={() => items.remove(i)} className="grid h-9 w-9 place-items-center rounded-full text-muted hover:bg-soft hover:text-secondary">
                           <Trash2 className="h-4 w-4" />
                         </button>
                       </li>
@@ -201,7 +201,7 @@ export function QuoteForm() {
                   })}
                 </ul>
               )}
-              {f.errors.items?.message && <p className="text-[13px] text-red">{f.errors.items.message}</p>}
+              {f.errors.items?.message && <p className="text-[13px] text-danger">{f.errors.items.message}</p>}
             </div>
           )}
 
@@ -263,7 +263,7 @@ export function QuoteForm() {
               <div className="sm:col-span-2">
                 <Consent register={register("consent")} error={f.errors.consent?.message} />
               </div>
-              {m.isError && <p className="text-[13px] text-red sm:col-span-2">{m.error.message}</p>}
+              {m.isError && <p className="text-[13px] text-danger sm:col-span-2">{m.error.message}</p>}
             </div>
           )}
         </motion.div>
@@ -274,7 +274,7 @@ export function QuoteForm() {
           <ArrowLeft className="h-4 w-4" /> Retour
         </button>
         {step < steps.length - 1 ? (
-          <button type="button" onClick={next} className="inline-flex h-14 items-center gap-2 rounded-full bg-ink px-8 text-[15px] font-medium text-bg transition hover:bg-red hover:text-white">
+          <button type="button" onClick={next} className="inline-flex h-14 items-center gap-2 rounded-full bg-primary px-8 text-[15px] font-medium text-white transition hover:bg-secondary hover:text-white">
             Continuer <ArrowRight className="h-4 w-4" />
           </button>
         ) : (

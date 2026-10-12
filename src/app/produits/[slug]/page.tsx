@@ -92,7 +92,7 @@ export default async function ProductPage({ params }: Props) {
                 { i: CreditCard, t: "Mobile Money, carte, virement" },
               ].map(({ i: I, t }) => (
                 <li key={t} className="flex items-center gap-2.5 rounded-2xl border border-line p-3">
-                  <I className="h-4 w-4 shrink-0 text-red" /> {t}
+                  <I className="h-4 w-4 shrink-0 text-secondary" /> {t}
                 </li>
               ))}
             </ul>
@@ -121,7 +121,7 @@ export default async function ProductPage({ params }: Props) {
 
       <section className="container-x mt-24 grid gap-8 lg:grid-cols-2">
         <InstallmentSimulator defaultPrice={p.price} />
-        <div className="flex flex-col justify-between rounded-[28px] bg-ink p-8 text-bg">
+        <div className="flex flex-col justify-between rounded-[28px] bg-primary p-8 text-white">
           <div>
             <p className="eyebrow mb-2">Besoin de conseil ?</p>
             <h3 className="font-display text-2xl font-semibold tracking-tight">Un expert SODIS vous répond.</h3>

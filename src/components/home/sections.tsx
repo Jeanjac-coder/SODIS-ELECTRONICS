@@ -36,7 +36,7 @@ export function Reassurance() {
         <ul className="flex w-max animate-marquee gap-12 hover:[animation-play-state:paused]">
           {row.map((r, i) => (
             <li key={i} className="flex shrink-0 items-center gap-3 text-[14px] font-medium text-ink-soft" aria-hidden={i >= reassurance.length}>
-              <r.icon className="h-5 w-5 text-red" strokeWidth={1.6} /> {r.label}
+              <r.icon className="h-5 w-5 text-secondary" strokeWidth={1.6} /> {r.label}
             </li>
           ))}
         </ul>
@@ -72,7 +72,7 @@ export function CategoryBento() {
                   i === 0 ? "w-[78%] translate-x-[6%]" : "max-h-[62%] w-[56%]",
                 )}
               />
-              <span className="relative z-10 inline-flex w-fit items-center gap-1.5 rounded-full bg-elev px-4 py-2 text-[13px] font-medium transition group-hover:bg-ink group-hover:text-bg">
+              <span className="relative z-10 inline-flex w-fit items-center gap-1.5 rounded-full bg-elev px-4 py-2 text-[13px] font-medium transition group-hover:bg-primary group-hover:text-white">
                 Découvrir <ArrowUpRight className="h-3.5 w-3.5" />
               </span>
             </Link>
@@ -156,7 +156,7 @@ export function HeroPromos() {
     <div aria-labelledby="hero-promos-title">
       <div className="mb-3 flex flex-wrap items-center justify-between gap-3 px-1">
         <h2 id="hero-promos-title" className="flex items-center gap-2 font-display text-[18px] font-semibold tracking-tight sm:text-[20px]">
-          <span className="grid h-7 w-7 place-items-center rounded-full bg-red text-white">
+          <span className="grid h-7 w-7 place-items-center rounded-full bg-accent text-[#253060]">
             <Zap className="h-3.5 w-3.5" />
           </span>
           Les promotions de la semaine
@@ -165,13 +165,13 @@ export function HeroPromos() {
           <p className="flex items-center gap-1 text-[12px] text-muted" role="timer" aria-label="Temps restant">
             <span className="hidden sm:inline">Fin dans</span>
             {(["d", "h", "m", "s"] as const).map((k) => (
-              <span key={k} className="rounded-lg bg-ink px-1.5 py-1 font-mono text-[12px] font-semibold tabular-nums text-bg">
+              <span key={k} className="rounded-lg bg-primary px-1.5 py-1 font-mono text-[12px] font-semibold tabular-nums text-white">
                 {t.ready ? String(t[k]).padStart(2, "0") : "--"}
                 {k === "d" ? "j" : k}
               </span>
             ))}
           </p>
-          <Link href="/promotions" className="hidden items-center gap-1 text-[13px] font-medium text-ink hover:text-red sm:inline-flex">
+          <Link href="/promotions" className="hidden items-center gap-1 text-[13px] font-medium text-ink hover:text-secondary sm:inline-flex">
             Tout voir <ArrowUpRight className="h-3.5 w-3.5" />
           </Link>
         </div>
@@ -182,12 +182,12 @@ export function HeroPromos() {
           if (!p) return null;
           return (
             <li key={o.slug} className="w-[250px] shrink-0 snap-start sm:w-[270px]">
-              <Link href={`/produits/${p.slug}`} className="group flex h-full items-center gap-3 rounded-2xl border border-line/80 bg-elev/80 p-2.5 pr-4 transition hover:border-ink hover:shadow-lg">
+              <Link href={`/produits/${p.slug}`} className="group flex h-full items-center gap-3 rounded-2xl border border-line/80 bg-elev/80 p-2.5 pr-4 transition hover:border-primary hover:shadow-lg">
                 <span className="relative grid h-16 w-16 shrink-0 place-items-center overflow-hidden rounded-xl bg-soft">
                   <Image src={p.image} alt="" width={64} height={64} className="h-12 w-12 object-contain transition duration-700 group-hover:scale-110" />
                 </span>
                 <span className="min-w-0">
-                  <span className="block truncate text-[11px] font-semibold uppercase tracking-wider text-red">{o.label}</span>
+                  <span className="block truncate text-[11px] font-semibold uppercase tracking-wider text-secondary">{o.label}</span>
                   <span className="mt-0.5 block truncate text-[13px] font-medium text-ink">{p.name}</span>
                   <span className="block truncate text-[11px] text-muted">{o.note}</span>
                 </span>
@@ -209,7 +209,7 @@ export function WeeklyPromos() {
       <div className="mb-12 flex flex-col gap-8 md:mb-14 lg:flex-row lg:items-end lg:justify-between">
         <div>
           <Reveal>
-            <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-red px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-white">
+            <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-accent px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#253060]">
               <Zap className="h-3.5 w-3.5" /> Cette semaine
             </p>
           </Reveal>
@@ -226,7 +226,7 @@ export function WeeklyPromos() {
           <p className="text-[12px] font-medium uppercase tracking-[0.18em] text-muted">Fin des offres dans</p>
           <div className="flex gap-2" aria-label="Temps restant" role="timer">
             {(["d", "h", "m", "s"] as const).map((k) => (
-              <div key={k} className="w-[68px] rounded-2xl bg-ink py-2.5 text-center text-bg">
+              <div key={k} className="w-[68px] rounded-2xl bg-primary py-2.5 text-center text-white">
                 <span className="block font-display text-2xl font-semibold tabular-nums">{t.ready ? String(t[k]).padStart(2, "0") : "--"}</span>
                 <span className="text-[10px] uppercase tracking-wider opacity-60">{{ d: "jours", h: "heures", m: "min", s: "sec" }[k]}</span>
               </div>
@@ -240,7 +240,7 @@ export function WeeklyPromos() {
           if (!p) return null;
           return (
             <div key={o.slug} className="flex w-[78vw] shrink-0 snap-start flex-col gap-2 sm:w-auto">
-              <p className="flex items-center justify-between gap-2 rounded-full bg-red/10 px-4 py-2 text-[12px] font-semibold text-red">
+              <p className="flex items-center justify-between gap-2 rounded-full bg-accent/25 px-4 py-2 text-[12px] font-semibold text-primary dark:text-accent">
                 <span className="flex shrink-0 items-center gap-1.5 whitespace-nowrap">
                   <Zap className="h-3.5 w-3.5" /> {o.label}
                 </span>
@@ -265,11 +265,11 @@ export function FlashDeals({ compact }: { compact?: boolean }) {
   const t = useCountdown(end);
   return (
     <section className={cn("container-x", !compact && "mt-32")} aria-labelledby="flash-title">
-      <div className="relative overflow-hidden rounded-[40px] bg-ink p-8 text-bg sm:p-12 lg:p-16">
-        <div aria-hidden className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-red/40 blur-[120px]" />
+      <div className="relative overflow-hidden rounded-[40px] bg-primary p-8 text-white sm:p-12 lg:p-16">
+        <div aria-hidden className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-secondary/50 blur-[120px]" />
         <div className="relative grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:items-center">
           <div>
-            <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-red px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-white">
+            <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-accent px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#253060]">
               <Zap className="h-3.5 w-3.5" /> Offres flash
             </p>
             <h2 id="flash-title" className="h-section text-balance">
@@ -295,7 +295,7 @@ export function FlashDeals({ compact }: { compact?: boolean }) {
                       <Image src={p.image} alt={p.name} width={80} height={80} className="h-16 w-16 object-contain transition duration-700 group-hover:scale-110" />
                     </span>
                     <span className="min-w-0">
-                      <span className="block text-[12px] font-semibold uppercase tracking-wider text-red">{o.label}</span>
+                      <span className="block text-[12px] font-semibold uppercase tracking-wider text-accent">{o.label}</span>
                       <span className="mt-1 block truncate text-[14px] font-medium">{p.name}</span>
                       <span className="block text-[12px] opacity-60">{o.note}</span>
                     </span>
@@ -337,7 +337,7 @@ export function PackConfigurator() {
           </AnimatePresence>
           {install && (
             <motion.span initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="glass absolute bottom-6 left-6 inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-[13px] font-medium">
-              <Wrench className="h-4 w-4 text-red" /> Installation incluse
+              <Wrench className="h-4 w-4 text-secondary" /> Installation incluse
             </motion.span>
           )}
         </div>
@@ -346,7 +346,7 @@ export function PackConfigurator() {
             <legend className="mb-3 text-[13px] font-semibold">1. Votre téléviseur</legend>
             <div className="grid grid-cols-2 gap-2">
               {tvs.map((p) => (
-                <button key={p.slug} onClick={() => setTv(p.slug)} aria-pressed={tv === p.slug} className={cn("rounded-2xl border p-3 text-left text-[13px] transition", tv === p.slug ? "border-ink bg-ink text-bg" : "border-line hover:border-ink/40")}>
+                <button key={p.slug} onClick={() => setTv(p.slug)} aria-pressed={tv === p.slug} className={cn("rounded-2xl border p-3 text-left text-[13px] transition", tv === p.slug ? "border-primary bg-primary text-white" : "border-line hover:border-primary/40")}>
                   <span className="block truncate font-medium">{p.name.replace(/^LG /, "")}</span>
                   <span className={cn("block truncate text-[11px]", tv === p.slug ? "opacity-70" : "text-muted")}>{p.model}</span>
                 </button>
@@ -357,7 +357,7 @@ export function PackConfigurator() {
             <legend className="mb-3 text-[13px] font-semibold">2. Votre barre de son</legend>
             <div className="grid grid-cols-3 gap-2">
               {bars.map((p) => (
-                <button key={p.slug} onClick={() => setBar(p.slug)} aria-pressed={bar === p.slug} className={cn("rounded-2xl border p-3 text-left text-[13px] transition", bar === p.slug ? "border-ink bg-ink text-bg" : "border-line hover:border-ink/40")}>
+                <button key={p.slug} onClick={() => setBar(p.slug)} aria-pressed={bar === p.slug} className={cn("rounded-2xl border p-3 text-left text-[13px] transition", bar === p.slug ? "border-primary bg-primary text-white" : "border-line hover:border-primary/40")}>
                   <span className="block font-medium">{p.model}</span>
                   <span className={cn("block text-[11px]", bar === p.slug ? "opacity-70" : "text-muted")}>{p.specs[0]}</span>
                 </button>
@@ -366,8 +366,8 @@ export function PackConfigurator() {
           </fieldset>
           <fieldset>
             <legend className="mb-3 text-[13px] font-semibold">3. Installation</legend>
-            <button onClick={() => setInstall((x) => !x)} aria-pressed={install} className={cn("flex w-full items-center gap-3 rounded-2xl border p-4 text-left text-[14px] transition", install ? "border-ink" : "border-line")}>
-              <span className={cn("grid h-6 w-6 place-items-center rounded-full border", install ? "border-red bg-red text-white" : "border-line")}>{install && <Check className="h-3.5 w-3.5" />}</span>
+            <button onClick={() => setInstall((x) => !x)} aria-pressed={install} className={cn("flex w-full items-center gap-3 rounded-2xl border p-4 text-left text-[14px] transition", install ? "border-primary" : "border-line")}>
+              <span className={cn("grid h-6 w-6 place-items-center rounded-full border", install ? "border-secondary bg-secondary text-white" : "border-line")}>{install && <Check className="h-3.5 w-3.5" />}</span>
               {installFee.label}
             </button>
           </fieldset>
@@ -377,7 +377,7 @@ export function PackConfigurator() {
               addToQuote(bar);
               toast({ title: "Pack ajouté au devis", body: `${T.model} + ${B.model}${install ? " + installation" : ""}`, tone: "success" });
             }}
-            className="inline-flex h-14 w-full items-center justify-center gap-2 rounded-full bg-ink text-[15px] font-medium text-bg transition hover:bg-red hover:text-white"
+            className="inline-flex h-14 w-full items-center justify-center gap-2 rounded-full bg-primary text-[15px] font-medium text-white transition hover:bg-secondary hover:text-white"
           >
             <Plus className="h-4 w-4" /> Ajouter le pack à mon devis
           </button>
@@ -407,7 +407,7 @@ export function Stats() {
 export function ServiceBlock() {
   const channels = [
     { icon: <WhatsAppIcon className="h-6 w-6" />, title: "WhatsApp", value: site.responseTime, href: waLink("Bonjour SODIS !"), color: "bg-[#25D366] text-white" },
-    { icon: <Headphones className="h-6 w-6" />, title: "Téléphone", value: site.phone, href: site.phoneHref, color: "bg-ink text-bg" },
+    { icon: <Headphones className="h-6 w-6" />, title: "Téléphone", value: site.phone, href: site.phoneHref, color: "bg-primary text-white" },
     { icon: <MessengerIcon className="h-6 w-6" />, title: "Messenger", value: "Réponse < 1 h", href: site.social.messenger, color: "bg-gradient-to-br from-[#00B2FF] to-[#A033FF] text-white" },
     { icon: <Clock className="h-6 w-6" />, title: "Email", value: site.email, href: `mailto:${site.email}`, color: "bg-soft text-ink" },
   ];
@@ -438,11 +438,11 @@ export function ServiceBlock() {
       <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {pillars.map((p, i) => (
           <Reveal key={p.title} delay={i * 0.06}>
-            <Link href={p.href ?? "/installation-sav"} className="group flex h-full items-start gap-4 rounded-[28px] bg-soft p-6 transition hover:bg-ink hover:text-bg">
-              <p.icon className="mt-0.5 h-5 w-5 shrink-0 text-red" strokeWidth={1.6} />
+            <Link href={p.href ?? "/installation-sav"} className="group flex h-full items-start gap-4 rounded-[28px] bg-soft p-6 transition hover:bg-primary hover:text-white">
+              <p.icon className="mt-0.5 h-5 w-5 shrink-0 text-secondary" strokeWidth={1.6} />
               <span>
                 <span className="block font-semibold">{p.title}</span>
-                <span className="mt-1 block text-[13px] text-muted transition group-hover:text-bg/70">{p.text}</span>
+                <span className="mt-1 block text-[13px] text-muted transition group-hover:text-white/70">{p.text}</span>
               </span>
             </Link>
           </Reveal>
@@ -489,7 +489,7 @@ export function Testimonials() {
               <Stars n={t.rating} />
               <p className="mt-4 text-[15px] leading-relaxed text-ink">« {t.text} »</p>
               <div className="mt-6 flex items-center gap-3">
-                <span className="grid h-10 w-10 place-items-center rounded-full bg-ink text-[13px] font-semibold text-bg">{t.name[0]}</span>
+                <span className="grid h-10 w-10 place-items-center rounded-full bg-primary text-[13px] font-semibold text-white">{t.name[0]}</span>
                 <span>
                   <span className="block text-[14px] font-medium">{t.name}</span>
                   <span className="block text-[12px] text-muted">
@@ -535,7 +535,7 @@ export function TrustBlock() {
         <ul className="grid gap-3 sm:grid-cols-2">
           {certs.map((c, i) => (
             <Reveal as="li" key={c.title} delay={i * 0.06} className="flex flex-col justify-between rounded-3xl bg-soft p-6">
-              <BadgeCheck className="h-7 w-7 text-red" strokeWidth={1.5} />
+              <BadgeCheck className="h-7 w-7 text-secondary" strokeWidth={1.5} />
               <span className="mt-10">
                 <span className="block text-[16px] font-semibold">{c.title}</span>
                 <span className="block text-[13px] text-muted">{c.text}</span>
@@ -575,7 +575,7 @@ export function VideoGallery() {
                 className="group relative flex aspect-[4/5] cursor-pointer flex-col justify-end overflow-hidden rounded-[28px] bg-gradient-to-b from-soft to-line/60 p-6"
               >
                 <Image src={v.image} alt="" fill sizes="(max-width: 640px) 90vw, 25vw" className="object-contain p-10 pb-24 transition duration-[1200ms] group-hover:scale-105" />
-                <span className="absolute left-1/2 top-[38%] grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-ink shadow-xl backdrop-blur transition group-hover:scale-110 group-hover:bg-red group-hover:text-white">
+                <span className="absolute left-1/2 top-[38%] grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-ink shadow-xl backdrop-blur transition group-hover:scale-110 group-hover:bg-secondary group-hover:text-white">
                   <Play className="ml-0.5 h-6 w-6 fill-current" />
                 </span>
                 <span className="relative text-[15px] font-semibold">{v.title}</span>
@@ -594,7 +594,7 @@ export function BigCta() {
     <section className="container-x mt-32">
       <Reveal scale={0.97}>
         <div className="relative overflow-hidden rounded-[40px] bg-soft px-8 py-20 text-center sm:px-16 sm:py-28">
-          <div aria-hidden className="absolute left-1/2 top-0 h-72 w-[60%] -translate-x-1/2 rounded-full bg-red/15 blur-[100px]" />
+          <div aria-hidden className="absolute left-1/2 top-0 h-72 w-[60%] -translate-x-1/2 rounded-full bg-secondary/15 blur-[100px]" />
           <p className="eyebrow relative mb-5">Projet particulier ou professionnel</p>
           <h2 className="h-display relative mx-auto max-w-4xl text-balance">On vous prépare une offre sur mesure.</h2>
           <p className="lead relative mx-auto mt-6 max-w-xl">Maison, bureau, hôtel, chantier : dites-nous ce qu&apos;il vous faut, on revient vers vous avec le meilleur prix, sous 24 h.</p>

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Clock, MapPin, Navigation, Phone } from "lucide-react";
-import { mapsDirections, mapsEmbed, stores } from "@/data/stores";
+import { mapsDirections, mapsEmbed, stores, storesTagline } from "@/data/stores";
 import { cn } from "@/lib/utils";
 
 /** Carte Google Maps des showrooms avec itinéraire, téléphone et horaires */
@@ -12,7 +12,8 @@ export function StoresMap() {
   const [loaded, setLoaded] = useState(false);
   return (
     <div className="grid gap-4 lg:grid-cols-[400px_1fr]">
-      <ul className="space-y-3" aria-label="Liste des magasins">
+      <div>
+      <ul className="no-scrollbar space-y-2.5 lg:max-h-[620px] lg:overflow-y-auto lg:pr-1" aria-label="Liste des magasins" data-lenis-prevent>
         {stores.map((st) => (
           <li key={st.id}>
             <div
@@ -21,7 +22,7 @@ export function StoresMap() {
               aria-pressed={active === st.id}
               onClick={() => setActive(st.id)}
               onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && setActive(st.id)}
-              className={cn("cursor-pointer rounded-[28px] border p-6 transition", active === st.id ? "border-ink bg-elev shadow-xl" : "border-line hover:border-ink/40")}
+              className={cn("cursor-pointer rounded-[24px] border p-5 transition", active === st.id ? "border-primary bg-elev shadow-xl" : "border-line hover:border-primary/40")}
             >
               <div className="flex items-start justify-between gap-3">
                 <div>
@@ -30,7 +31,7 @@ export function StoresMap() {
                     <MapPin className="h-3.5 w-3.5" /> {st.address}
                   </p>
                 </div>
-                {st.main && <span className="rounded-full bg-red px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-white">Siège</span>}
+                {st.main && <span className="rounded-full bg-accent px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#253060]">Siège</span>}
               </div>
               {active === st.id && (
                 <div className="mt-5 space-y-4 border-t border-line pt-5">
@@ -52,10 +53,10 @@ export function StoresMap() {
                     ))}
                   </div>
                   <div className="grid grid-cols-2 gap-2">
-                    <a href={mapsDirections(st)} target="_blank" rel="noopener noreferrer" className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-ink text-[13px] font-medium text-bg hover:bg-red hover:text-white">
+                    <a href={mapsDirections(st)} target="_blank" rel="noopener noreferrer" className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-primary text-[13px] font-medium text-white hover:bg-secondary hover:text-white">
                       <Navigation className="h-4 w-4" /> Nous trouver
                     </a>
-                    <a href={`tel:${st.phone.replace(/\s/g, "")}`} className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-line text-[13px] font-medium hover:border-ink">
+                    <a href={`tel:${st.phone.replace(/\s/g, "")}`} className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-line text-[13px] font-medium hover:border-primary">
                       <Phone className="h-4 w-4" /> Appeler
                     </a>
                   </div>
@@ -65,7 +66,9 @@ export function StoresMap() {
           </li>
         ))}
       </ul>
-      <div className="relative min-h-[420px] overflow-hidden rounded-[32px] border border-line bg-soft">
+      <p className="mt-4 px-2 text-[14px] font-medium text-secondary">{storesTagline}</p>
+      </div>
+      <div className="relative min-h-[420px] lg:min-h-[660px] overflow-hidden rounded-[32px] border border-line bg-soft">
         {!loaded && <div className="skeleton absolute inset-0" aria-hidden />}
         <iframe
           key={s.id}

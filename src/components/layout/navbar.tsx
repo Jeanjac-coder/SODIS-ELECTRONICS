@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { Bell, ChevronDown, FileText, Heart, Menu, Moon, Search, ShoppingBag, Sun, User, X, ArrowUpRight } from "lucide-react";
+import { Bell, ChevronDown, FileText, Heart, Menu, Moon, Search, ShoppingBag, Sun, X, ArrowUpRight, GitCompare } from "lucide-react";
 import { useEffect, useState } from "react";
 import { nav, site, waLink } from "@/config/site";
 import { categories } from "@/data/categories";
@@ -26,7 +26,7 @@ function IconBtn({ label, children, count, onClick, href }: { label: string; chi
           key={count}
           initial={{ scale: 0.4 }}
           animate={{ scale: 1 }}
-          className="absolute -right-0.5 -top-0.5 grid h-[18px] min-w-[18px] place-items-center rounded-full bg-red px-1 text-[10px] font-semibold text-white"
+          className="absolute -right-0.5 -top-0.5 grid h-[18px] min-w-[18px] place-items-center rounded-full bg-accent px-1 text-[10px] font-semibold text-[#253060]"
         >
           {count}
         </motion.span>
@@ -84,7 +84,7 @@ function Notifications() {
                     }}
                     className="flex gap-3 px-5 py-4 transition hover:bg-soft"
                   >
-                    <span className={cn("mt-1.5 h-2 w-2 shrink-0 rounded-full", n.read ? "bg-line" : "bg-red")} />
+                    <span className={cn("mt-1.5 h-2 w-2 shrink-0 rounded-full", n.read ? "bg-line" : "bg-secondary")} />
                     <span>
                       <span className="block text-[13px] font-medium text-ink">{n.title}</span>
                       <span className="block text-[12px] leading-relaxed text-muted">{n.body}</span>
@@ -136,7 +136,7 @@ function MegaMenu({ onClose }: { onClose: () => void }) {
           <ul className="space-y-2.5">
             {families(list).map((f) => (
               <li key={f}>
-                <Link href={`/categories/${cat}?gamme=${encodeURIComponent(f)}`} onClick={onClose} className="text-[15px] text-ink-soft transition hover:text-red">
+                <Link href={`/categories/${cat}?gamme=${encodeURIComponent(f)}`} onClick={onClose} className="text-[15px] text-ink-soft transition hover:text-secondary">
                   {f}
                 </Link>
               </li>
@@ -225,7 +225,7 @@ export function Navbar() {
                       {"mega" in item && <ChevronDown className={cn("h-3.5 w-3.5 transition", mega && "rotate-180")} />}
                       <span
                         className={cn(
-                          "absolute inset-x-3.5 -bottom-0.5 h-[2px] origin-left rounded-full bg-red transition-transform duration-500 ease-[var(--ease-premium)]",
+                          "absolute inset-x-3.5 -bottom-0.5 h-[2px] origin-left rounded-full bg-accent transition-transform duration-500 ease-[var(--ease-premium)]",
                           active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100",
                         )}
                       />
@@ -252,11 +252,6 @@ export function Navbar() {
               <ShoppingBag className="h-[19px] w-[19px]" strokeWidth={1.6} />
             </IconBtn>
             <span className="hidden md:block">
-              <IconBtn label="Mon espace" href="/compte">
-                <User className="h-[19px] w-[19px]" strokeWidth={1.6} />
-              </IconBtn>
-            </span>
-            <span className="hidden md:block">
               <IconBtn label={theme === "dark" ? "Mode clair" : "Mode sombre"} onClick={toggle}>
                 {theme === "dark" ? <Sun className="h-[19px] w-[19px]" strokeWidth={1.6} /> : <Moon className="h-[19px] w-[19px]" strokeWidth={1.6} />}
               </IconBtn>
@@ -273,7 +268,7 @@ export function Navbar() {
             </a>
             <Link
               href="/devis"
-              className="ml-2 hidden h-10 items-center gap-2 rounded-full bg-ink px-5 text-[13px] font-medium text-bg transition hover:bg-red hover:text-white lg:inline-flex"
+              className="ml-2 hidden h-10 items-center gap-2 rounded-full bg-primary px-5 text-[13px] font-medium text-white transition hover:bg-secondary hover:text-white lg:inline-flex"
               data-cursor="hover"
             >
               <FileText className="h-4 w-4" /> Devis
@@ -325,7 +320,7 @@ export function Navbar() {
                 ))}
               </motion.div>
               <motion.div variants={{ h: { opacity: 0 }, s: { opacity: 1 } }} className="mt-8 grid grid-cols-2 gap-3">
-                <Link href="/devis" className="flex h-14 items-center justify-center rounded-full bg-ink text-[15px] font-medium text-bg">
+                <Link href="/devis" className="flex h-14 items-center justify-center rounded-full bg-primary text-[15px] font-medium text-white">
                   Demander un devis
                 </Link>
                 <a href={waLink()} target="_blank" rel="noopener noreferrer" className="flex h-14 items-center justify-center gap-2 rounded-full bg-[#25D366] text-[15px] font-medium text-white">
@@ -336,8 +331,8 @@ export function Navbar() {
                 <Link href="/favoris" className="flex items-center gap-2">
                   <Heart className="h-4 w-4" /> Favoris ({wishlist.length})
                 </Link>
-                <Link href="/compte" className="flex items-center gap-2">
-                  <User className="h-4 w-4" /> Mon espace
+                <Link href="/comparateur" className="flex items-center gap-2">
+                  <GitCompare className="h-4 w-4" /> Comparateur
                 </Link>
                 <button onClick={toggle} className="flex items-center gap-2">
                   {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />} Thème

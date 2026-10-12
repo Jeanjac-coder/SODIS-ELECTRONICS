@@ -37,7 +37,7 @@ export function ProductCard({ product: p, index = 0, priority }: { product: Prod
               className="object-contain p-8 transition duration-[900ms] ease-[var(--ease-premium)] group-hover:scale-[1.06]"
             />
             <div className="absolute left-4 top-4 z-[2] flex flex-col gap-1.5">
-              {tag && <span className={cn("rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider", tag === "promo" ? "bg-red text-white" : "bg-ink text-bg")}>{tagLabel[tag]}</span>}
+              {tag && <span className={cn("rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider", tag === "promo" ? "bg-accent text-[#253060]" : "bg-primary text-white")}>{tagLabel[tag]}</span>}
               {!p.available && <span className="rounded-full bg-elev px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted">Bientôt</span>}
             </div>
             <div className="absolute right-3 top-3 z-[2] flex flex-col gap-2 transition duration-500 sm:translate-x-3 sm:opacity-0 sm:group-hover:translate-x-0 sm:group-hover:opacity-100 sm:group-focus-within:translate-x-0 sm:group-focus-within:opacity-100">
@@ -51,7 +51,7 @@ export function ProductCard({ product: p, index = 0, priority }: { product: Prod
                 }}
                 className="glass grid h-10 w-10 place-items-center rounded-full border border-line/60 transition hover:scale-110"
               >
-                <Heart className={cn("h-4 w-4", wish && "fill-red text-red")} />
+                <Heart className={cn("h-4 w-4", wish && "fill-secondary text-secondary")} />
               </button>
               <button
                 type="button"
@@ -65,7 +65,7 @@ export function ProductCard({ product: p, index = 0, priority }: { product: Prod
                       : { title: r === "added" ? "Ajouté au comparateur" : "Retiré du comparateur", body: p.name },
                   );
                 }}
-                className={cn("glass grid h-10 w-10 place-items-center rounded-full border border-line/60 transition hover:scale-110", cmp && "bg-ink text-bg")}
+                className={cn("glass grid h-10 w-10 place-items-center rounded-full border border-line/60 transition hover:scale-110", cmp && "bg-primary text-white")}
               >
                 <GitCompare className="h-4 w-4" />
               </button>
@@ -80,7 +80,7 @@ export function ProductCard({ product: p, index = 0, priority }: { product: Prod
               </span>
             </div>
             <h3 className="text-[16px] font-semibold leading-snug tracking-tight text-ink">
-              <Link href={`/produits/${p.slug}`} className="hover:text-red">
+              <Link href={`/produits/${p.slug}`} className="hover:text-secondary">
                 {p.name}
               </Link>
             </h3>
@@ -111,7 +111,7 @@ function QuickAdd({ slug, name }: { slug: string; name: string }) {
         setTimeout(() => delete b.dataset.done, 1400);
       }}
       aria-label={`Ajouter ${name} au devis`}
-      className="group/add relative grid h-11 w-11 place-items-center rounded-full bg-ink text-bg transition hover:w-28 hover:bg-red hover:text-white data-[done]:bg-emerald-500"
+      className="group/add relative grid h-11 w-11 place-items-center rounded-full bg-primary text-white transition hover:w-28 hover:bg-secondary hover:text-white data-[done]:bg-emerald-500"
       data-cursor="hover"
     >
       <Plus className="h-4 w-4 transition group-hover/add:opacity-0 group-data-[done]/add:opacity-0" />

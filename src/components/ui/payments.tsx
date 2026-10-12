@@ -86,7 +86,7 @@ export const paymentMethods: Method[] = [
     id: "carte-bancaire",
     label: "Paiement par carte bancaire",
     render: () => (
-      <Frame bg="#0b0b0d">
+      <Frame bg="#1938A5">
         <rect x="24" y="22" width="44" height="28" rx="5" fill="none" stroke="#fff" strokeWidth="2.5" />
         <rect x="24" y="29" width="44" height="5" fill="#fff" />
         <text x="74" y="34" fill="#fff" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="10">Carte</text>
@@ -109,7 +109,7 @@ export const paymentMethods: Method[] = [
     id: "livraison",
     label: "Paiement à la livraison",
     render: () => (
-      <Frame bg="#d71920">
+      <Frame bg="#253060">
         <path d="M18 28h24v16H18zM42 33h8l5 5v6H42z" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinejoin="round" />
         <circle cx="26" cy="46" r="3" fill="#fff" />
         <circle cx="48" cy="46" r="3" fill="#fff" />

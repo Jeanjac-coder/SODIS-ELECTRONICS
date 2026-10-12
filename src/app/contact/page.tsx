@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   const channels = [
     { icon: <WhatsAppIcon className="h-5 w-5" />, label: "WhatsApp", value: site.responseTime, href: waLink("Bonjour SODIS !"), cls: "bg-[#25D366] text-white" },
-    { icon: <Phone className="h-5 w-5" />, label: "Téléphone", value: site.phone, href: site.phoneHref, cls: "bg-ink text-bg" },
+    { icon: <Phone className="h-5 w-5" />, label: "Téléphone", value: site.phone, href: site.phoneHref, cls: "bg-primary text-white" },
     { icon: <MessengerIcon className="h-5 w-5" />, label: "Messenger", value: "Sodis electronics", href: site.social.messenger, cls: "bg-gradient-to-br from-[#00B2FF] to-[#A033FF] text-white" },
     { icon: <Mail className="h-5 w-5" />, label: "Email", value: site.email, href: `mailto:${site.email}`, cls: "bg-soft text-ink" },
   ];
@@ -43,13 +43,13 @@ export default function ContactPage() {
             <h2 className="mb-6 font-display text-xl font-semibold">Infos pratiques</h2>
             <ul className="space-y-4 text-[14px]">
               <li className="flex gap-3">
-                <MapPin className="h-4 w-4 shrink-0 text-red" /> {site.address.city}, Côte d&apos;Ivoire
+                <MapPin className="h-4 w-4 shrink-0 text-secondary" /> {site.address.street}, {site.address.city}, Côte d&apos;Ivoire
               </li>
               <li className="flex gap-3">
-                <Clock className="h-4 w-4 shrink-0 text-red" /> {site.hours}
+                <Clock className="h-4 w-4 shrink-0 text-secondary" /> {site.hours}
               </li>
               <li className="flex gap-3">
-                <Phone className="h-4 w-4 shrink-0 text-red" /> {site.phone}
+                <Phone className="h-4 w-4 shrink-0 text-secondary" /> {site.phone}
               </li>
             </ul>
             <div className="mt-6 flex gap-2">

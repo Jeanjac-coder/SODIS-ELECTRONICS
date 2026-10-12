@@ -48,7 +48,7 @@ export function ContactForm() {
       <div className="sm:col-span-2">
         <Consent register={register("consent")} error={f.errors.consent?.message} />
       </div>
-      {m.isError && <p className="text-[13px] text-red sm:col-span-2">{m.error.message}</p>}
+      {m.isError && <p className="text-[13px] text-danger sm:col-span-2">{m.error.message}</p>}
       <SubmitButton pending={m.isPending} className="sm:col-span-2 sm:w-fit">
         Envoyer le message
       </SubmitButton>
@@ -78,7 +78,7 @@ export function CallbackForm({ compact }: { compact?: boolean }) {
           ))}
         </select>
       </Field>
-      {m.isError && <p className="text-[13px] text-red">{m.error.message}</p>}
+      {m.isError && <p className="text-[13px] text-danger">{m.error.message}</p>}
       <SubmitButton pending={m.isPending} className={compact ? "" : "sm:col-span-3 sm:w-fit"}>
         Être rappelé gratuitement
       </SubmitButton>
@@ -127,7 +127,7 @@ export function AppointmentForm() {
           ))}
         </select>
       </Field>
-      {m.isError && <p className="text-[13px] text-red sm:col-span-2">{m.error.message}</p>}
+      {m.isError && <p className="text-[13px] text-danger sm:col-span-2">{m.error.message}</p>}
       <SubmitButton pending={m.isPending} className="sm:col-span-2 sm:w-fit">
         Réserver mon créneau
       </SubmitButton>

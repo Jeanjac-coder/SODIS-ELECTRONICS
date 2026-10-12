@@ -26,7 +26,7 @@ export default function LegalNoticePage() {
               <li>Nom commercial : {site.name}</li>
               <li>Forme juridique et capital : [à compléter]</li>
               <li>RCCM : [à compléter] · Compte contribuable : [à compléter]</li>
-              <li>Siège social : [adresse à compléter], {site.address.city}, Côte d&apos;Ivoire</li>
+              <li>Siège social : {site.address.street}, {site.address.city}, Côte d&apos;Ivoire</li>
               <li>Téléphone : {site.phone} · Email : {site.email}</li>
               <li>Directeur de la publication : [à compléter]</li>
             </ul>

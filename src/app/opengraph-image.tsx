@@ -15,8 +15,8 @@ export default async function OgImage() {
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", width: "55%" }}>
           <img src={src(logo)} width={300} height={98} alt="" />
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <div style={{ fontSize: 22, letterSpacing: 4, color: "#d71920", fontWeight: 700 }}>DISTRIBUTEUR OFFICIEL LG</div>
-            <div style={{ fontSize: 60, fontWeight: 700, color: "#0b0b0d", lineHeight: 1.05, marginTop: 16 }}>Le meilleur de la tech, livré et installé chez vous.</div>
+            <div style={{ fontSize: 22, letterSpacing: 4, color: "#1938A5", fontWeight: 700 }}>DISTRIBUTEUR OFFICIEL LG</div>
+            <div style={{ fontSize: 60, fontWeight: 700, color: "#253060", lineHeight: 1.05, marginTop: 16 }}>Le meilleur de la tech, livré et installé chez vous.</div>
           </div>
           <div style={{ fontSize: 24, color: "#6e6e73" }}>TV · Audio · Clim · Froid · Lavage · Cuisine — Côte d&apos;Ivoire</div>
         </div>

@@ -16,7 +16,7 @@ export function Field({ label, error, children, className, hint }: { label: stri
       </label>
       {hint && !error && <p className="-mt-1 text-[12px] text-muted">{hint}</p>}
       {error && (
-        <p role="alert" className="mt-1.5 text-[12px] text-red">
+        <p role="alert" className="mt-1.5 text-[12px] text-danger">
           {error}
         </p>
       )}
@@ -28,7 +28,7 @@ export function Consent({ error, register }: { error?: string; register: object 
   return (
     <div>
       <label className="flex cursor-pointer items-start gap-3 text-[13px] leading-relaxed text-muted">
-        <input type="checkbox" className="mt-1 h-4 w-4 shrink-0 accent-[var(--red)]" {...register} />
+        <input type="checkbox" className="mt-1 h-4 w-4 shrink-0 accent-[var(--secondary)]" {...register} />
         <span>
           J&apos;accepte que SODIS Electronics utilise ces informations pour traiter ma demande, conformément à la{" "}
           <Link href="/politique-de-confidentialite" className="text-ink underline underline-offset-4">
@@ -38,7 +38,7 @@ export function Consent({ error, register }: { error?: string; register: object 
         </span>
       </label>
       {error && (
-        <p role="alert" className="mt-1.5 text-[12px] text-red">
+        <p role="alert" className="mt-1.5 text-[12px] text-danger">
           {error}
         </p>
       )}
@@ -52,7 +52,7 @@ export function SubmitButton({ pending, children, className }: { pending: boolea
       type="submit"
       disabled={pending}
       className={cn(
-        "inline-flex h-14 items-center justify-center gap-2 rounded-full bg-ink px-8 text-[15px] font-medium text-bg transition hover:bg-red hover:text-white disabled:opacity-60",
+        "inline-flex h-14 items-center justify-center gap-2 rounded-full bg-primary px-8 text-[15px] font-medium text-white transition hover:bg-secondary hover:text-white disabled:opacity-60",
         className,
       )}
       data-cursor="hover"

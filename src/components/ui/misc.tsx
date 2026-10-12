@@ -99,9 +99,9 @@ export function CategoryIcon({ icon, className }: { icon: Category["icon"]; clas
 export function Badge({ children, tone = "neutral", className }: { children: React.ReactNode; tone?: "neutral" | "red" | "green" | "dark" | "gold"; className?: string }) {
   const tones = {
     neutral: "bg-soft text-ink-soft",
-    red: "bg-red text-white",
+    red: "bg-accent text-[#253060]",
     green: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400",
-    dark: "bg-ink text-bg",
+    dark: "bg-primary text-white",
     gold: "bg-gold/15 text-[#8a6410] dark:text-gold",
   };
   return <span className={cn("inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-semibold tracking-wide", tones[tone], className)}>{children}</span>;

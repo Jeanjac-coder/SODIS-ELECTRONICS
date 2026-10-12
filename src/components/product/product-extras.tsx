@@ -37,7 +37,7 @@ export function ProductActions({ product: p }: { product: Product }) {
             addToQuote(p.slug, qty);
             toast({ title: `${qty} × ajouté au panier de devis`, body: p.name, tone: "success" });
           }}
-          className="inline-flex h-14 flex-1 items-center justify-center gap-2 rounded-full bg-ink px-8 text-[15px] font-medium text-bg transition hover:bg-red hover:text-white"
+          className="inline-flex h-14 flex-1 items-center justify-center gap-2 rounded-full bg-primary px-8 text-[15px] font-medium text-white transition hover:bg-secondary hover:text-white"
           data-cursor="hover"
         >
           <ShoppingBag className="h-4 w-4" /> Ajouter au devis
@@ -60,7 +60,7 @@ export function ProductActions({ product: p }: { product: Product }) {
           aria-pressed={wish}
           className="flex flex-col items-center gap-1.5 rounded-2xl bg-soft py-3 text-[12px] text-ink-soft transition hover:text-ink"
         >
-          <Heart className={cn("h-4 w-4", wish && "fill-red text-red")} /> Favori
+          <Heart className={cn("h-4 w-4", wish && "fill-secondary text-secondary")} /> Favori
         </button>
         <button
           onClick={() => {
@@ -68,7 +68,7 @@ export function ProductActions({ product: p }: { product: Product }) {
             toast(r === "full" ? { title: `Comparateur plein (${COMPARE_MAX} max.)`, tone: "error" } : { title: r === "added" ? "Ajouté au comparateur" : "Retiré du comparateur" });
           }}
           aria-pressed={cmp}
-          className={cn("flex flex-col items-center gap-1.5 rounded-2xl py-3 text-[12px] transition", cmp ? "bg-ink text-bg" : "bg-soft text-ink-soft hover:text-ink")}
+          className={cn("flex flex-col items-center gap-1.5 rounded-2xl py-3 text-[12px] transition", cmp ? "bg-primary text-white" : "bg-soft text-ink-soft hover:text-ink")}
         >
           <GitCompare className="h-4 w-4" /> Comparer
         </button>
@@ -103,13 +103,13 @@ export function InstallmentSimulator({ defaultPrice }: { defaultPrice?: number }
           <span className="label flex justify-between">
             Apport initial <span className="text-ink">{deposit} %</span>
           </span>
-          <input type="range" min={0} max={70} step={5} value={deposit} onChange={(e) => setDeposit(Number(e.target.value))} className="w-full accent-[var(--red)]" />
+          <input type="range" min={0} max={70} step={5} value={deposit} onChange={(e) => setDeposit(Number(e.target.value))} className="w-full accent-[var(--secondary)]" />
         </label>
         <div>
           <span className="label">Durée</span>
           <div className="flex gap-2">
             {site.installments.months.map((m) => (
-              <button key={m} onClick={() => setMonths(m)} aria-pressed={months === m} className={cn("h-11 flex-1 rounded-full border text-[14px] transition", months === m ? "border-ink bg-ink text-bg" : "border-line")}>
+              <button key={m} onClick={() => setMonths(m)} aria-pressed={months === m} className={cn("h-11 flex-1 rounded-full border text-[14px] transition", months === m ? "border-primary bg-primary text-white" : "border-line")}>
                 {m} mois
               </button>
             ))}
@@ -123,7 +123,7 @@ export function InstallmentSimulator({ defaultPrice }: { defaultPrice?: number }
         </div>
         <div>
           <p className="text-[12px] text-muted">Mensualité estimée</p>
-          <p className="text-[22px] font-semibold text-red">{fcfa(monthly)}</p>
+          <p className="text-[22px] font-semibold text-secondary">{fcfa(monthly)}</p>
         </div>
       </div>
       <p className="mt-4 text-[12px] leading-relaxed text-muted">Simulation indicative, sans valeur contractuelle. Conditions définitives communiquées avec votre devis, sous réserve d&apos;acceptation du dossier.</p>
@@ -144,10 +144,10 @@ export function ProductRail({ items, label }: { items: Product[]; label: string 
   return (
     <div className="relative" role="region" aria-roledescription="carrousel" aria-label={label}>
       <div className="mb-6 flex justify-end gap-2">
-        <button aria-label="Précédent" disabled={!can.prev} onClick={() => api?.scrollPrev()} className="grid h-11 w-11 place-items-center rounded-full border border-line transition hover:border-ink disabled:opacity-30">
+        <button aria-label="Précédent" disabled={!can.prev} onClick={() => api?.scrollPrev()} className="grid h-11 w-11 place-items-center rounded-full border border-line transition hover:border-primary disabled:opacity-30">
           <ArrowLeft className="h-4 w-4" />
         </button>
-        <button aria-label="Suivant" disabled={!can.next} onClick={() => api?.scrollNext()} className="grid h-11 w-11 place-items-center rounded-full border border-line transition hover:border-ink disabled:opacity-30">
+        <button aria-label="Suivant" disabled={!can.next} onClick={() => api?.scrollNext()} className="grid h-11 w-11 place-items-center rounded-full border border-line transition hover:border-primary disabled:opacity-30">
           <ArrowRight className="h-4 w-4" />
         </button>
       </div>
@@ -183,7 +183,7 @@ export function RecentlyViewed({ exclude }: { exclude?: string }) {
 
 export function PrintButton() {
   return (
-    <button onClick={() => window.print()} className="no-print inline-flex h-12 items-center gap-2 rounded-full bg-ink px-6 text-[14px] font-medium text-bg hover:bg-red hover:text-white">
+    <button onClick={() => window.print()} className="no-print inline-flex h-12 items-center gap-2 rounded-full bg-primary px-6 text-[14px] font-medium text-white hover:bg-secondary hover:text-white">
       <Download className="h-4 w-4" /> Télécharger en PDF
     </button>
   );

@@ -29,22 +29,22 @@ export function Footer() {
             </p>
             <ul className="mt-8 space-y-3 text-[14px] text-ink-soft">
               <li>
-                <a href={site.phoneHref} className="flex items-center gap-3 hover:text-red">
+                <a href={site.phoneHref} className="flex items-center gap-3 hover:text-secondary">
                   <Phone className="h-4 w-4" /> {site.phone}
                 </a>
               </li>
               <li>
-                <a href={waLink()} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-red">
+                <a href={waLink()} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-secondary">
                   <WhatsAppIcon className="h-4 w-4" /> WhatsApp · {site.responseTime}
                 </a>
               </li>
               <li>
-                <a href={`mailto:${site.email}`} className="flex items-center gap-3 hover:text-red">
+                <a href={`mailto:${site.email}`} className="flex items-center gap-3 hover:text-secondary">
                   <Mail className="h-4 w-4" /> {site.email}
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <MapPin className="h-4 w-4" /> {site.address.city}, Côte d&apos;Ivoire
+                <MapPin className="h-4 w-4" /> {site.address.street}, {site.address.city}, Côte d&apos;Ivoire
               </li>
               <li className="flex items-center gap-3">
                 <Clock className="h-4 w-4" /> {site.hours}
@@ -58,7 +58,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`SODIS Electronics sur ${s}`}
-                  className="grid h-10 w-10 place-items-center rounded-full border border-line text-ink-soft transition hover:border-ink hover:text-ink"
+                  className="grid h-10 w-10 place-items-center rounded-full border border-line text-ink-soft transition hover:border-primary hover:text-ink"
                 >
                   <SocialIcon name={s} className="h-4 w-4" />
                 </a>
@@ -84,7 +84,7 @@ export function Footer() {
             <a
               href="/catalogue/catalogue-sodis-electronics-lg.pdf"
               download
-              className="col-span-2 flex items-center justify-between gap-4 rounded-3xl bg-ink p-6 text-bg transition hover:bg-red hover:text-white sm:col-span-4"
+              className="col-span-2 flex items-center justify-between gap-4 rounded-3xl bg-primary p-6 text-white transition hover:bg-secondary hover:text-white sm:col-span-4"
             >
               <span>
                 <span className="block text-[12px] uppercase tracking-[0.18em] opacity-70">Catalogue 2025</span>

@@ -13,19 +13,24 @@ export const site = {
   tagline: "Distributeur officiel LG en Côte d'Ivoire",
   description:
     "SODIS Electronics, distributeur officiel LG en Côte d'Ivoire : TV OLED & QNED, audio XBOOM, climatiseurs, réfrigérateurs, lave-linge et électroménager. Livraison, installation et SAV partout en Côte d'Ivoire.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sodis-electronics.ci", // À CONFIRMER
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sodis-electronics.com",
   locale: "fr_CI",
   phone: "+225 07 98 08 08 08",
   phoneHref: "tel:+2250798080808",
   whatsapp: "2250798080808",
-  email: "contact@sodis-electronics.ci", // À CONFIRMER
-  emailSav: "sav@sodis-electronics.ci", // À CONFIRMER
+  email: "serviceclient@sodis-electronics.com",
+  emailSav: "serviceclient@sodis-electronics.com",
   address: {
-    street: "Abidjan", // À CONFIRMER — adresse du siège / showroom
+    street: "Siège SODIS-MAD CI, Yopougon",
     city: "Abidjan",
     country: "CI",
   },
-  hours: "Lun – Sam · 8h30 – 19h00", // À CONFIRMER
+  hours: "Lun – Ven · 8h30 – 17h30 · Sam · 8h30 – 14h30",
+  openingHours: [
+    { days: "Lundi – Vendredi", time: "8h30 – 17h30" },
+    { days: "Samedi", time: "8h30 – 14h30" },
+    { days: "Dimanche", time: "Fermé" },
+  ],
   responseTime: "≈ 15 min sur WhatsApp",
   social: {
     instagram: "https://www.instagram.com/sodis_electronics/",
@@ -44,7 +49,7 @@ export const site = {
   /** Chiffres clés — À CONFIRMER */
   stats: [
     { value: 10000, suffix: "+", label: "Clients équipés" },
-    { value: 3, suffix: "", label: "Showrooms" },
+    { value: 10, suffix: "", label: "Points de vente" },
     { value: 100, suffix: "+", label: "Références LG" },
     { value: 10, suffix: " ans", label: "D'expérience" },
   ],

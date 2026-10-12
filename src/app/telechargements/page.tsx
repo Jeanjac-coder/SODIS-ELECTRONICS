@@ -17,7 +17,7 @@ export default function DownloadsPage() {
     <>
       <PageHeader crumbs={[{ href: "/telechargements", label: "Téléchargements" }]} eyebrow="Espace téléchargement" title="Catalogues, fiches techniques, notices." lead="Toute la documentation utile, à garder sous la main ou à partager." />
       <section className="container-x">
-        <a href="/catalogue/catalogue-sodis-electronics-lg.pdf" download className="group flex flex-col items-start justify-between gap-6 rounded-[36px] bg-ink p-8 text-bg transition hover:bg-red sm:flex-row sm:items-center sm:p-12">
+        <a href="/catalogue/catalogue-sodis-electronics-lg.pdf" download className="group flex flex-col items-start justify-between gap-6 rounded-[36px] bg-primary p-8 text-white transition hover:bg-secondary sm:flex-row sm:items-center sm:p-12">
           <span className="flex items-center gap-5">
             <span className="grid h-16 w-16 place-items-center rounded-2xl bg-white/10">
               <FileText className="h-7 w-7" />
@@ -39,7 +39,7 @@ export default function DownloadsPage() {
             <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {byCategory(c.slug).map((p) => (
                 <li key={p.slug}>
-                  <Link href={`/produits/${p.slug}/fiche`} className="flex items-center gap-4 rounded-2xl border border-line p-3 transition hover:border-ink">
+                  <Link href={`/produits/${p.slug}/fiche`} className="flex items-center gap-4 rounded-2xl border border-line p-3 transition hover:border-primary">
                     <Image src={p.image} alt="" width={48} height={48} className="h-12 w-12 rounded-xl bg-soft object-contain p-1" />
                     <span className="min-w-0 flex-1">
                       <span className="block truncate text-[14px] font-medium">{p.model}</span>

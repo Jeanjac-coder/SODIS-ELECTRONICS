@@ -13,12 +13,12 @@ export function NewsletterForm() {
 
   return (
     <form onSubmit={handleSubmit((d) => m.mutate(d, { onSuccess: () => reset() }))} className="w-full" noValidate>
-      <div className="flex h-16 items-center gap-2 rounded-full border border-line bg-elev p-2 pl-6 transition focus-within:border-ink">
+      <div className="flex h-16 items-center gap-2 rounded-full border border-line bg-elev p-2 pl-6 transition focus-within:border-primary">
         <label htmlFor="nl-email" className="sr-only">
           Adresse email
         </label>
         <input id="nl-email" type="email" placeholder="votre@email.com" autoComplete="email" {...register("email")} className="h-full min-w-0 flex-1 bg-transparent text-[15px] outline-none placeholder:text-muted" />
-        <button type="submit" disabled={m.isPending} className="inline-flex h-12 items-center gap-2 rounded-full bg-ink px-6 text-[14px] font-medium text-bg transition hover:bg-red hover:text-white">
+        <button type="submit" disabled={m.isPending} className="inline-flex h-12 items-center gap-2 rounded-full bg-primary px-6 text-[14px] font-medium text-white transition hover:bg-secondary hover:text-white">
           {m.isPending ? <Loader2 className="h-4 w-4 animate-spin" /> : m.isSuccess ? <Check className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />}
           <span className="hidden sm:inline">{m.isSuccess ? "Inscrit !" : "S'inscrire"}</span>
         </button>

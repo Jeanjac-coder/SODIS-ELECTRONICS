@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Heart, GitCompare, ShoppingBag, Trash2, Minus, Plus, X, Clock, Bell } from "lucide-react";
+import { Heart, GitCompare, ShoppingBag, Trash2, Minus, Plus, X } from "lucide-react";
 import { getProduct, type Product } from "@/data/products";
-import { compareStore, noticeStore, quoteStore, recentStore, setQuoteQty, toggleCompare, wishlistStore, clearQuote } from "@/lib/store";
+import { compareStore, quoteStore, setQuoteQty, toggleCompare, wishlistStore, clearQuote } from "@/lib/store";
 import { waLink } from "@/config/site";
 import { ProductCard } from "@/components/product/product-card";
 import { ButtonLink } from "@/components/ui/button";
@@ -50,13 +50,13 @@ export function CompareView() {
             {items.map((p) => (
               <th key={p.slug} className="p-6 align-top font-normal">
                 <div className="relative">
-                  <button onClick={() => toggleCompare(p.slug)} aria-label={`Retirer ${p.name}`} className="absolute -right-2 -top-2 grid h-8 w-8 place-items-center rounded-full bg-soft hover:bg-ink hover:text-bg">
+                  <button onClick={() => toggleCompare(p.slug)} aria-label={`Retirer ${p.name}`} className="absolute -right-2 -top-2 grid h-8 w-8 place-items-center rounded-full bg-soft hover:bg-primary hover:text-white">
                     <X className="h-4 w-4" />
                   </button>
                   <div className="relative mb-4 aspect-square rounded-2xl bg-soft">
                     <Image src={p.image} alt={p.name} fill sizes="200px" className="object-contain p-6" />
                   </div>
-                  <Link href={`/produits/${p.slug}`} className="text-[15px] font-semibold hover:text-red">
+                  <Link href={`/produits/${p.slug}`} className="text-[15px] font-semibold hover:text-secondary">
                     {p.name}
                   </Link>
                   <p className="text-[12px] text-muted">{p.model}</p>
@@ -118,7 +118,7 @@ export function QuoteCartView() {
                 <Image src={p.image} alt={p.name} fill sizes="96px" className="object-contain p-3" />
               </Link>
               <div className="min-w-0 flex-1">
-                <Link href={`/produits/${p.slug}`} className="text-[16px] font-semibold hover:text-red">
+                <Link href={`/produits/${p.slug}`} className="text-[16px] font-semibold hover:text-secondary">
                   {p.name}
                 </Link>
                 <p className="text-[13px] text-muted">
@@ -134,7 +134,7 @@ export function QuoteCartView() {
                   <Plus className="h-3.5 w-3.5" />
                 </button>
               </div>
-              <button aria-label="Retirer" onClick={() => setQuoteQty(p.slug, 0)} className="grid h-10 w-10 place-items-center rounded-full text-muted hover:bg-soft hover:text-red">
+              <button aria-label="Retirer" onClick={() => setQuoteQty(p.slug, 0)} className="grid h-10 w-10 place-items-center rounded-full text-muted hover:bg-soft hover:text-secondary">
                 <Trash2 className="h-4 w-4" />
               </button>
             </li>
@@ -157,67 +157,6 @@ export function QuoteCartView() {
           Vider le panier
         </button>
       </aside>
-    </div>
-  );
-}
-
-export function AccountView() {
-  const wish = wishlistStore.use();
-  const cart = quoteStore.use();
-  const cmp = compareStore.use();
-  const recent = resolve(recentStore.use()).slice(0, 4);
-  const notices = noticeStore.use();
-  const tiles = [
-    { href: "/panier", icon: ShoppingBag, label: "Panier de devis", n: cart.reduce((a, i) => a + i.qty, 0) },
-    { href: "/favoris", icon: Heart, label: "Favoris", n: wish.length },
-    { href: "/comparateur", icon: GitCompare, label: "Comparateur", n: cmp.length },
-    { href: "#notifications", icon: Bell, label: "Notifications", n: notices.filter((x) => !x.read).length },
-  ];
-  return (
-    <div className="space-y-16">
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {tiles.map((t) => (
-          <Link key={t.label} href={t.href} className="flex items-center justify-between rounded-[28px] border border-line p-6 transition hover:shadow-xl">
-            <span className="flex items-center gap-3">
-              <t.icon className="h-5 w-5 text-red" /> {t.label}
-            </span>
-            <span className="font-display text-2xl font-semibold">{t.n}</span>
-          </Link>
-        ))}
-      </div>
-      {recent.length > 0 && (
-        <section>
-          <h2 className="mb-6 flex items-center gap-2 text-[18px] font-semibold">
-            <Clock className="h-5 w-5" /> Récemment consultés
-          </h2>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {recent.map((p, i) => (
-              <ProductCard key={p.slug} product={p} index={i} />
-            ))}
-          </div>
-        </section>
-      )}
-      <section id="notifications">
-        <h2 className="mb-6 flex items-center gap-2 text-[18px] font-semibold">
-          <Bell className="h-5 w-5" /> Notifications
-        </h2>
-        <ul className="divide-y divide-line rounded-[28px] border border-line">
-          {notices.map((n) => (
-            <li key={n.id} className="flex items-start gap-4 p-5">
-              <span className={`mt-2 h-2 w-2 shrink-0 rounded-full ${n.read ? "bg-line" : "bg-red"}`} />
-              <div className="flex-1">
-                <p className="font-medium">{n.title}</p>
-                <p className="text-[14px] text-muted">{n.body}</p>
-              </div>
-              {n.href && (
-                <Link href={n.href} className="text-[13px] underline underline-offset-4">
-                  Voir
-                </Link>
-              )}
-            </li>
-          ))}
-        </ul>
-      </section>
     </div>
   );
 }

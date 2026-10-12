@@ -28,7 +28,7 @@ export default function BrandsPage() {
       <PageHeader crumbs={[{ href: "/marques", label: "Marques partenaires" }]} eyebrow="Partenaires" title="Distributeur officiel LG en Côte d'Ivoire." lead="Nous avons choisi de travailler avec les marques qui partagent notre exigence. Au cœur de notre offre : LG Electronics, leader mondial de l'électronique grand public." />
       <section className="container-x">
         <Reveal>
-          <div className="grid items-center gap-10 overflow-hidden rounded-[40px] bg-ink p-10 text-bg md:grid-cols-[auto_1fr] md:p-16">
+          <div className="grid items-center gap-10 overflow-hidden rounded-[40px] bg-primary p-10 text-white md:grid-cols-[auto_1fr] md:p-16">
             <span className="grid h-40 w-40 place-items-center rounded-full bg-[#A50034] font-display text-6xl font-bold text-white">LG</span>
             <div>
               <p className="eyebrow mb-3">Partenaire principal</p>

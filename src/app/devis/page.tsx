@@ -25,7 +25,7 @@ export default function QuotePage() {
             { i: ShieldCheck, t: "Sans engagement", d: "Vos données restent confidentielles." },
           ].map(({ i: I, t, d }) => (
             <div key={t} className="flex gap-4 rounded-3xl bg-soft p-5">
-              <I className="h-5 w-5 shrink-0 text-red" />
+              <I className="h-5 w-5 shrink-0 text-secondary" />
               <div>
                 <p className="text-[15px] font-semibold">{t}</p>
                 <p className="text-[13px] text-muted">{d}</p>

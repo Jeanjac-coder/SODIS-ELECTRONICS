@@ -68,7 +68,7 @@ export default function SavPage() {
           {steps.map((s, i) => (
             <Reveal as="li" key={s.title} delay={i * 0.06} className="relative rounded-[28px] border border-line p-7">
               <span className="font-display text-5xl font-semibold text-line">0{i + 1}</span>
-              <s.icon className="mt-6 h-6 w-6 text-red" strokeWidth={1.6} />
+              <s.icon className="mt-6 h-6 w-6 text-secondary" strokeWidth={1.6} />
               <h3 className="mt-4 text-[17px] font-semibold">{s.title}</h3>
               <p className="mt-2 text-[14px] leading-relaxed text-muted">{s.text}</p>
             </Reveal>
@@ -77,7 +77,7 @@ export default function SavPage() {
       </section>
 
       <section className="container-x mt-32 grid gap-6 lg:grid-cols-3">
-        <div className="rounded-[32px] bg-ink p-8 text-bg lg:col-span-1">
+        <div className="rounded-[32px] bg-primary p-8 text-white lg:col-span-1">
           <p className="eyebrow mb-3">Garantie</p>
           <h2 className="font-display text-2xl font-semibold tracking-tight">Garantie constructeur LG sur tout le catalogue.</h2>
           <p className="mt-4 text-[15px] leading-relaxed opacity-70">Conservez votre facture : elle fait foi. La durée et les conditions de garantie dépendent de la catégorie de produit et sont indiquées sur votre facture.</p>

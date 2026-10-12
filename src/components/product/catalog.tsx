@@ -96,7 +96,7 @@ export function Catalog({ items, lockCategory }: { items: Product[]; lockCategor
         <label className="flex cursor-pointer items-center justify-between rounded-2xl bg-soft px-4 py-3 text-[14px]">
           En stock uniquement
           <input type="checkbox" checked={avail} onChange={(e) => set((p) => (e.target.checked ? p.set("dispo", "1") : p.delete("dispo")))} className="peer sr-only" />
-          <span className="relative h-6 w-11 rounded-full bg-line transition peer-checked:bg-red after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:bg-white after:shadow after:transition peer-checked:after:translate-x-5" />
+          <span className="relative h-6 w-11 rounded-full bg-line transition peer-checked:bg-secondary after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:bg-white after:shadow after:transition peer-checked:after:translate-x-5" />
         </label>
       </fieldset>
       {activeCount > 0 && (
@@ -132,7 +132,7 @@ export function Catalog({ items, lockCategory }: { items: Product[]; lockCategor
           <option value="taille-desc">Taille / puissance ↓</option>
           <option value="taille-asc">Taille / puissance ↑</option>
         </select>
-        <button onClick={() => setPanel(true)} className="inline-flex h-11 items-center gap-2 rounded-full bg-ink px-5 text-[14px] font-medium text-bg lg:hidden">
+        <button onClick={() => setPanel(true)} className="inline-flex h-11 items-center gap-2 rounded-full bg-primary px-5 text-[14px] font-medium text-white lg:hidden">
           <SlidersHorizontal className="h-4 w-4" /> Filtres {activeCount > 0 && `(${activeCount})`}
         </button>
         <p className="w-full text-[13px] text-muted sm:w-auto sm:px-3" aria-live="polite">
@@ -155,7 +155,7 @@ export function Catalog({ items, lockCategory }: { items: Product[]; lockCategor
             <div className="rounded-3xl bg-soft p-12 text-center">
               <p className="font-display text-2xl font-semibold">Aucun produit ne correspond.</p>
               <p className="mt-2 text-muted">Élargissez vos filtres, ou demandez-nous directement : on trouve toujours une solution.</p>
-              <Link href="/devis" className="mt-6 inline-flex h-12 items-center rounded-full bg-ink px-6 text-[14px] font-medium text-bg">
+              <Link href="/devis" className="mt-6 inline-flex h-12 items-center rounded-full bg-primary px-6 text-[14px] font-medium text-white">
                 Demander un devis
               </Link>
             </div>
@@ -184,7 +184,7 @@ export function Catalog({ items, lockCategory }: { items: Product[]; lockCategor
                 </button>
               </div>
               {Filters}
-              <button onClick={() => setPanel(false)} className="mt-8 h-14 w-full rounded-full bg-ink text-[15px] font-medium text-bg">
+              <button onClick={() => setPanel(false)} className="mt-8 h-14 w-full rounded-full bg-primary text-[15px] font-medium text-white">
                 Voir {list.length} produits
               </button>
             </motion.div>
@@ -201,7 +201,7 @@ function Chip({ active, onClick, children }: { active: boolean; onClick: () => v
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      className={cn("rounded-full border px-3.5 py-2 text-[13px] transition", active ? "border-ink bg-ink text-bg" : "border-line text-ink-soft hover:border-ink/50 hover:text-ink")}
+      className={cn("rounded-full border px-3.5 py-2 text-[13px] transition", active ? "border-primary bg-primary text-white" : "border-line text-ink-soft hover:border-primary/50 hover:text-ink")}
     >
       {children}
     </button>
@@ -226,7 +226,7 @@ export function CompareBar() {
             ) : null;
           })}
         </div>
-        <Link href="/comparateur" className="inline-flex h-10 items-center gap-2 rounded-full bg-ink px-5 text-[13px] font-medium text-bg">
+        <Link href="/comparateur" className="inline-flex h-10 items-center gap-2 rounded-full bg-primary px-5 text-[13px] font-medium text-white">
           <GitCompare className="h-4 w-4" /> Comparer ({list.length})
         </Link>
         <button aria-label="Vider le comparateur" onClick={() => compareStore.set([])} className="grid h-10 w-10 place-items-center rounded-full text-muted hover:bg-soft">

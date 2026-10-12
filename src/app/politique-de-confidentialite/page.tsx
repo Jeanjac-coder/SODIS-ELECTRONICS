@@ -22,7 +22,7 @@ export default function PrivacyPage() {
           title: "Responsable du traitement",
           body: (
             <p>
-              Le responsable du traitement est {site.legalName} (« SODIS Electronics »), {site.address.city}, Côte d&apos;Ivoire. Contact : <a href={`mailto:${site.email}`}>{site.email}</a> · {site.phone}. Les
+              Le responsable du traitement est {site.legalName} (« SODIS Electronics »), {site.address.street}, {site.address.city}, Côte d&apos;Ivoire. Contact : <a href={`mailto:${site.email}`}>{site.email}</a> · {site.phone}. Les
               traitements sont mis en œuvre conformément à la loi n° 2013-450 du 19 juin 2013 relative à la protection des données à caractère personnel et aux exigences de l&apos;Autorité de
               Régulation des Télécommunications/TIC de Côte d&apos;Ivoire (ARTCI).
             </p>

@@ -25,11 +25,11 @@ export function FaqList({ limit }: { limit?: number }) {
       <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-center">
         <div className="relative flex-1">
           <Search className="pointer-events-none absolute left-5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" />
-          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Rechercher une question : livraison, Wave, garantie…" aria-label="Rechercher dans la FAQ" className="h-14 w-full rounded-full border border-line bg-elev pl-12 pr-5 text-[15px] outline-none focus:border-ink" />
+          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Rechercher une question : livraison, Wave, garantie…" aria-label="Rechercher dans la FAQ" className="h-14 w-full rounded-full border border-line bg-elev pl-12 pr-5 text-[15px] outline-none focus:border-primary" />
         </div>
         <div className="no-scrollbar flex gap-2 overflow-x-auto">
           {[null, ...faq.map((g) => g.cat)].map((c) => (
-            <button key={c ?? "all"} onClick={() => setCat(c)} aria-pressed={cat === c} className={cn("shrink-0 rounded-full border px-4 py-2.5 text-[13px] transition", cat === c ? "border-ink bg-ink text-bg" : "border-line hover:border-ink/40")}>
+            <button key={c ?? "all"} onClick={() => setCat(c)} aria-pressed={cat === c} className={cn("shrink-0 rounded-full border px-4 py-2.5 text-[13px] transition", cat === c ? "border-primary bg-primary text-white" : "border-line hover:border-primary/40")}>
               {c ?? "Toutes"}
             </button>
           ))}
@@ -47,7 +47,7 @@ export function FaqList({ limit }: { limit?: number }) {
                   <li key={id}>
                     <button onClick={() => setOpen(isOpen ? null : id)} aria-expanded={isOpen} className="flex w-full items-center justify-between gap-6 py-6 text-left">
                       <span className="text-[17px] font-medium">{it.q}</span>
-                      <span className={cn("grid h-9 w-9 shrink-0 place-items-center rounded-full border border-line transition duration-500", isOpen && "rotate-45 border-ink bg-ink text-bg")}>
+                      <span className={cn("grid h-9 w-9 shrink-0 place-items-center rounded-full border border-line transition duration-500", isOpen && "rotate-45 border-primary bg-primary text-white")}>
                         <Plus className="h-4 w-4" />
                       </span>
                     </button>

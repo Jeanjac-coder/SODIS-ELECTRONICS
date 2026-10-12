@@ -10,9 +10,10 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-ink text-bg hover:bg-red hover:text-white shadow-[0_8px_24px_-8px_rgb(0_0_0/0.35)]",
-        red: "bg-red text-white hover:bg-red-strong shadow-[0_10px_30px_-10px_var(--red)]",
-        outline: "border border-line bg-transparent text-ink hover:border-ink",
+        primary: "bg-primary text-white hover:bg-secondary hover:text-white shadow-[0_8px_24px_-8px_rgb(37_48_96/0.45)]",
+        secondary: "bg-secondary text-white hover:bg-secondary-strong shadow-[0_10px_30px_-10px_var(--secondary)]",
+        accent: "bg-accent text-[#253060] hover:bg-accent-strong shadow-[0_10px_30px_-12px_var(--accent)]",
+        outline: "border border-line bg-transparent text-ink hover:border-primary",
         ghost: "text-ink hover:bg-soft",
         glass: "glass border border-white/40 text-ink hover:bg-white/80 dark:border-white/10 dark:hover:bg-white/10",
         whatsapp: "bg-[#25D366] text-white hover:bg-[#1ebe5a]",

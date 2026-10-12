@@ -56,7 +56,7 @@ export function FloatingActions() {
       <button
         onClick={() => window.dispatchEvent(new Event("sodis:assistant"))}
         aria-label="Ouvrir l'assistant SODIS"
-        className="grid h-11 w-11 place-items-center rounded-full bg-ink text-bg shadow-lg transition hover:scale-105"
+        className="grid h-11 w-11 place-items-center rounded-full bg-primary text-white shadow-lg transition hover:scale-105"
       >
         <Sparkles className="h-5 w-5" />
       </button>
@@ -101,7 +101,7 @@ export function Toaster() {
             exit={{ opacity: 0, y: -10, scale: 0.96 }}
             className="glass pointer-events-auto flex w-full max-w-sm items-start gap-3 rounded-2xl border border-line p-4 shadow-2xl"
           >
-            {t.tone === "error" ? <XCircle className="mt-0.5 h-5 w-5 text-red" /> : <CheckCircle2 className="mt-0.5 h-5 w-5 text-emerald-500" />}
+            {t.tone === "error" ? <XCircle className="mt-0.5 h-5 w-5 text-danger" /> : <CheckCircle2 className="mt-0.5 h-5 w-5 text-emerald-500" />}
             <div>
               <p className="text-[14px] font-medium text-ink">{t.title}</p>
               {t.body && <p className="text-[13px] text-muted">{t.body}</p>}
@@ -148,7 +148,7 @@ export function ViewingNow({ className }: { className?: string }) {
   if (n === null) return null;
   return (
     <p className={cn("inline-flex items-center gap-2 rounded-full bg-soft px-3 py-1.5 text-[12px] text-ink-soft", className)}>
-      <Eye className="h-3.5 w-3.5 text-red" /> {n} personnes consultent ce produit
+      <Eye className="h-3.5 w-3.5 text-secondary" /> {n} personnes consultent ce produit
     </p>
   );
 }

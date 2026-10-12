@@ -38,7 +38,7 @@ function Results({ hits, active, onPick }: { hits: SearchHit[]; active: number; 
               </>
             ) : (
               <>
-                <span className="grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-ink text-bg">
+                <span className="grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-primary text-white">
                   <ArrowRight className="h-5 w-5" />
                 </span>
                 <span className="min-w-0 flex-1">
@@ -114,7 +114,7 @@ export function InlineSearch({ className }: { className?: string }) {
           aria-controls={`${id}-list`}
           aria-autocomplete="list"
         />
-        <button type="submit" className="grid h-12 shrink-0 place-items-center rounded-full bg-ink px-5 text-[13px] font-medium text-bg transition hover:bg-red hover:text-white" data-cursor="hover">
+        <button type="submit" className="grid h-12 shrink-0 place-items-center rounded-full bg-primary px-5 text-[13px] font-medium text-white transition hover:bg-secondary hover:text-white" data-cursor="hover">
           Rechercher
         </button>
       </form>
@@ -135,7 +135,7 @@ export function InlineSearch({ className }: { className?: string }) {
                 <p className="mb-3 text-[12px] font-medium uppercase tracking-wider text-muted">Recherches populaires</p>
                 <div className="flex flex-wrap gap-2">
                   {popularSearches.map((p) => (
-                    <button key={p} type="button" onClick={() => s.setQ(p)} className="rounded-full border border-line px-3.5 py-1.5 text-[13px] text-ink-soft transition hover:border-ink hover:text-ink">
+                    <button key={p} type="button" onClick={() => s.setQ(p)} className="rounded-full border border-line px-3.5 py-1.5 text-[13px] text-ink-soft transition hover:border-primary hover:text-ink">
                       {p}
                     </button>
                   ))}
@@ -230,7 +230,7 @@ export function SearchDialog() {
                 <p className="mb-3 text-[12px] font-medium uppercase tracking-wider text-muted">{s.q ? "Aucun résultat — essayez :" : "Recherches populaires"}</p>
                 <div className="flex flex-wrap gap-2">
                   {popularSearches.map((p) => (
-                    <button key={p} type="button" onClick={() => s.setQ(p)} className="rounded-full border border-line px-3.5 py-1.5 text-[13px] text-ink-soft transition hover:border-ink hover:text-ink">
+                    <button key={p} type="button" onClick={() => s.setQ(p)} className="rounded-full border border-line px-3.5 py-1.5 text-[13px] text-ink-soft transition hover:border-primary hover:text-ink">
                       {p}
                     </button>
                   ))}

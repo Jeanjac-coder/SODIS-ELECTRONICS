@@ -39,7 +39,7 @@ export default function AboutPage() {
           {values.map((v, i) => (
             <Reveal key={v.title} delay={i * 0.06}>
               <div className="h-full rounded-[28px] border border-line p-7">
-                <span className="font-display text-sm font-semibold text-red">0{i + 1}</span>
+                <span className="font-display text-sm font-semibold text-secondary">0{i + 1}</span>
                 <h3 className="mt-4 text-[20px] font-semibold">{v.title}</h3>
                 <p className="mt-2 text-[14px] leading-relaxed text-muted">{v.text}</p>
               </div>
@@ -52,7 +52,7 @@ export default function AboutPage() {
         <ol className="relative border-l border-line pl-8 md:pl-12">
           {timeline.map((t, i) => (
             <Reveal as="li" key={t.title} delay={i * 0.08} x={-20} y={0} className="relative pb-14 last:pb-0">
-              <span className="absolute -left-[41px] top-1 grid h-4 w-4 place-items-center rounded-full border-2 border-red bg-bg md:-left-[57px]" />
+              <span className="absolute -left-[41px] top-1 grid h-4 w-4 place-items-center rounded-full border-2 border-secondary bg-bg md:-left-[57px]" />
               <p className="eyebrow">{t.year}</p>
               <h3 className="mt-2 font-display text-2xl font-semibold tracking-tight">{t.title}</h3>
               <p className="mt-2 max-w-xl text-[15px] leading-relaxed text-muted">{t.text}</p>

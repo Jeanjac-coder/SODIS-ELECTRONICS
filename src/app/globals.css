@@ -12,11 +12,14 @@
   --ink-soft: #3a3a40;
   --muted: #6e6e73;
   --line: #e7e7ec;
-  --red: #d71920; /* Rouge SODIS */
-  --red-strong: #b3121a;
-  --navy: #202f61; /* Bleu marine du logo */
-  --sky: #4a86cf; /* Bleu accent du logo */
-  --gold: #e0b44b; /* Or des étiquettes catalogue */
+  --primary: #253060; /* Couleur principale SODIS (bleu marine) */
+  --primary-strong: #1b2449;
+  --secondary: #1938a5; /* Couleur secondaire (bleu roi) */
+  --secondary-strong: #132c80;
+  --accent: #e9c46a; /* Troisième couleur (or) */
+  --accent-strong: #ddb24a;
+  --danger: #d92d20;
+  --gold: var(--accent);
   --glass: rgb(255 255 255 / 0.62);
   --shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 30px rgb(0 0 0 / 0.06);
   color-scheme: light;
@@ -30,8 +33,11 @@
   --ink-soft: #d2d2d7;
   --muted: #a1a1a6;
   --line: #2a2a30;
-  --red: #ff3b3f;
-  --red-strong: #e0262b;
+  --primary: #34428a;
+  --primary-strong: #2a3672;
+  --secondary: #5b7cf5;
+  --secondary-strong: #4766e6;
+  --danger: #ff5a4f;
   --glass: rgb(20 20 23 / 0.6);
   --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 30px rgb(0 0 0 / 0.35);
   color-scheme: dark;
@@ -45,10 +51,13 @@
   --color-ink-soft: var(--ink-soft);
   --color-muted: var(--muted);
   --color-line: var(--line);
-  --color-red: var(--red);
-  --color-red-strong: var(--red-strong);
-  --color-navy: var(--navy);
-  --color-sky: var(--sky);
+  --color-primary: var(--primary);
+  --color-primary-strong: var(--primary-strong);
+  --color-secondary: var(--secondary);
+  --color-secondary-strong: var(--secondary-strong);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-danger: var(--danger);
   --color-gold: var(--gold);
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-display), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -91,17 +100,17 @@ body {
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-::selection { background: var(--red); color: #fff; }
+::selection { background: var(--accent); color: var(--primary); }
 
 :focus-visible {
-  outline: 2px solid var(--red);
+  outline: 2px solid var(--secondary);
   outline-offset: 3px;
   border-radius: 6px;
 }
 
 @layer components {
   .container-x { @apply mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-10; }
-  .eyebrow { @apply text-[11px] font-semibold uppercase tracking-[0.22em] text-red; }
+  .eyebrow { @apply text-[11px] font-semibold uppercase tracking-[0.22em] text-secondary; }
   .h-display { @apply font-display text-[clamp(2.4rem,6vw,5.5rem)] font-semibold leading-[0.98] tracking-[-0.035em]; }
   .h-section { @apply font-display text-[clamp(1.9rem,3.6vw,3.25rem)] font-semibold leading-[1.05] tracking-[-0.03em]; }
   .lead { @apply text-[clamp(1rem,1.3vw,1.2rem)] leading-relaxed text-muted; }
@@ -113,7 +122,7 @@ body {
     @apply animate-shimmer;
   }
   .input {
-    @apply w-full rounded-2xl border border-line bg-elev px-4 py-3.5 text-[15px] text-ink placeholder:text-muted/70 transition outline-none focus:border-ink focus:ring-4 focus:ring-ink/5;
+    @apply w-full rounded-2xl border border-line bg-elev px-4 py-3.5 text-[15px] text-ink placeholder:text-muted/70 transition outline-none focus:border-primary focus:ring-4 focus:ring-primary/10;
   }
   .label { @apply mb-2 block text-[13px] font-medium text-ink-soft; }
   .prose-sodis h2 { @apply mt-12 mb-4 font-display text-2xl font-semibold tracking-tight text-ink; }
@@ -121,7 +130,7 @@ body {
   .prose-sodis p, .prose-sodis li { @apply leading-relaxed text-ink-soft; }
   .prose-sodis p { @apply mb-4; }
   .prose-sodis ul { @apply mb-4 list-disc space-y-2 pl-5; }
-  .prose-sodis a { @apply text-red underline underline-offset-4; }
+  .prose-sodis a { @apply text-secondary underline underline-offset-4; }
   .prose-sodis table { @apply my-6 w-full text-left text-sm; }
   .prose-sodis th { @apply border-b border-line py-3 pr-4 font-semibold text-ink; }
   .prose-sodis td { @apply border-b border-line py-3 pr-4 text-ink-soft; }

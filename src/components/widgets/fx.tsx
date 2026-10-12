@@ -73,11 +73,11 @@ export function CustomCursor() {
 
   return (
     <>
-      <div ref={dot} aria-hidden className="cursor-dot pointer-events-none fixed left-0 top-0 z-[100] hidden h-1.5 w-1.5 -ml-[3px] -mt-[3px] rounded-full bg-red mix-blend-difference" />
+      <div ref={dot} aria-hidden className="cursor-dot pointer-events-none fixed left-0 top-0 z-[100] hidden h-1.5 w-1.5 -ml-[3px] -mt-[3px] rounded-full bg-secondary mix-blend-difference" />
       <div
         ref={ring}
         aria-hidden
-        className="cursor-ring pointer-events-none fixed left-0 top-0 z-[100] hidden h-9 w-9 -ml-[18px] -mt-[18px] rounded-full border border-ink/30 transition-[width,height,margin,background,border-color] duration-300 [&.is-hover]:-ml-7 [&.is-hover]:-mt-7 [&.is-hover]:h-14 [&.is-hover]:w-14 [&.is-hover]:border-red/50 [&.is-hover]:bg-red/5"
+        className="cursor-ring pointer-events-none fixed left-0 top-0 z-[100] hidden h-9 w-9 -ml-[18px] -mt-[18px] rounded-full border border-primary/30 transition-[width,height,margin,background,border-color] duration-300 [&.is-hover]:-ml-7 [&.is-hover]:-mt-7 [&.is-hover]:h-14 [&.is-hover]:w-14 [&.is-hover]:border-secondary/50 [&.is-hover]:bg-secondary/5"
       />
       <style>{`.has-cursor .cursor-dot,.has-cursor .cursor-ring{display:block}`}</style>
     </>
