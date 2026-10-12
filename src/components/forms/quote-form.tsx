@@ -51,7 +51,7 @@ export function QuoteForm() {
       projectType: "Équipement maison",
       delivery: true,
       installation: true,
-      payment: "À discuter",
+      payment: "Paiement à la livraison",
     },
   });
   const { register, control, watch, setValue, handleSubmit, trigger, formState: f, getValues } = form;

@@ -8,7 +8,7 @@ export const testimonials = [
   { name: "Aïcha K.", city: "Cocody", rating: 5, product: "LG OLED evo C5 65\"", text: "Livrée le lendemain, installée et réglée en 30 minutes. Le technicien a même configuré Netflix. Service vraiment premium." },
   { name: "Serge T.", city: "Yopougon", rating: 5, product: "LG XBOOM XL9T", text: "Pour le mariage de ma sœur, l'XL9T a tenu toute la nuit. Les gens demandaient où j'avais acheté ça. C'était doux !" },
   { name: "Responsable technique, hôtel", city: "Grand-Bassam", rating: 5, product: "24 climatiseurs DUAL Inverter", text: "Devis clair en 24 h, pose sur deux jours sans gêner nos clients. La facture d'électricité a vraiment baissé." },
-  { name: "Mariam D.", city: "Marcory", rating: 4, product: "Réfrigérateur 4 portes 512 L", text: "Très bon conseil en showroom, on m'a aidée à choisir selon la taille de ma cuisine. Paiement Wave sans souci." },
+  { name: "Mariam D.", city: "Marcory", rating: 4, product: "Réfrigérateur 4 portes 512 L", text: "Très bon conseil en showroom, on m'a aidée à choisir selon la taille de ma cuisine. Paiement à la livraison sans souci." },
   { name: "Kouadio B.", city: "Bouaké", rating: 5, product: "LG Lave-linge 15 kg", text: "Livré à Bouaké en 3 jours, comme annoncé. Matériel garanti, SAV joignable sur WhatsApp. Je recommande." },
   { name: "Directrice administrative, cabinet conseil", city: "Plateau", rating: 5, product: "Écrans QNED 75\" salles de réunion", text: "Interlocuteur unique, facture pro, installation murale propre. Exactement ce qu'on attendait d'un distributeur officiel." },
 ];
@@ -49,8 +49,7 @@ export const faq = [
   {
     cat: "Paiement",
     items: [
-      { q: "Quels moyens de paiement acceptez-vous ?", a: "Wave, Orange Money, MTN Mobile Money, Moov Money, carte Visa / Mastercard, virement bancaire et, selon la zone, paiement à la livraison." },
-      { q: "Peut-on payer en plusieurs fois ?", a: "Un paiement échelonné peut être proposé selon le montant et le profil. Utilisez notre simulateur puis précisez-le dans votre demande de devis." },
+      { q: "Comment se fait le paiement ?", a: "Vous payez à la livraison, une fois votre appareil reçu et vérifié. Pour les projets et commandes spéciales, les modalités sont précisées dans votre devis." },
       { q: "Le paiement est-il sécurisé ?", a: "Oui. Aucun paiement n'est demandé sans facture pro forma, et chaque règlement donne lieu à un reçu officiel SODIS Electronics." },
     ],
   },

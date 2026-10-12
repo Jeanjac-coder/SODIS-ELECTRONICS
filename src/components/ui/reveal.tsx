@@ -33,7 +33,7 @@ export function Reveal({ children, className, delay = 0, y = 28, x = 0, scale = 
 }
 
 /** Compteur animé (chiffres clés) */
-export function Counter({ to, suffix = "", className }: { to: number; suffix?: string; className?: string }) {
+export function Counter({ to, suffix = "", prefix = "", step = 1, className }: { to: number; suffix?: string; prefix?: string; step?: number; className?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-40px" });
   const [val, setVal] = useState(0);
@@ -44,7 +44,8 @@ export function Counter({ to, suffix = "", className }: { to: number; suffix?: s
   }, [inView, to]);
   return (
     <span ref={ref} className={className}>
-      {new Intl.NumberFormat("fr-FR").format(Math.round(val)).replace(/ | /g, " ")}
+      {prefix}
+      {new Intl.NumberFormat("fr-FR").format(Math.round(val / step) * step).replace(/ | /g, " ")}
       {suffix}
     </span>
   );

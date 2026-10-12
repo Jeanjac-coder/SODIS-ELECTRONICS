@@ -15,7 +15,7 @@ const Frame = ({ children, bg = "#fff" }: { children: React.ReactNode; bg?: stri
   </svg>
 );
 
-export const paymentMethods: Method[] = [
+const allMethods: Method[] = [
   {
     id: "orange-money",
     label: "Orange Money",
@@ -120,9 +120,12 @@ export const paymentMethods: Method[] = [
   },
 ];
 
+/** Seul moyen de paiement proposé : paiement à la livraison */
+export const paymentMethods = allMethods.filter((m) => m.id === "livraison");
+
 export function PaymentLogos({ className, size = "md" }: { className?: string; size?: "sm" | "md" }) {
   return (
-    <ul className={cn("flex flex-wrap items-center gap-2.5", className)} aria-label="Moyens de paiement acceptés">
+    <ul className={cn("flex flex-wrap items-center gap-2.5", className)} aria-label="Mode de paiement accepté">
       {paymentMethods.map((m) => (
         <li
           key={m.id}

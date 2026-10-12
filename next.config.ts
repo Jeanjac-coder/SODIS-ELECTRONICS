@@ -15,6 +15,9 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
   experimental: { optimizePackageImports: ["lucide-react", "framer-motion"] },
+  async redirects() {
+    return [{ source: "/services", destination: "/installation-sav", permanent: false }];
+  },
   async headers() {
     return [
       {

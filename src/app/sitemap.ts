@@ -12,7 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/categories", 0.8],
     ["/promotions", 0.8],
     ["/devis", 0.8],
-    ["/services", 0.7],
     ["/installation-sav", 0.7],
     ["/magasins", 0.7],
     ["/contact", 0.7],

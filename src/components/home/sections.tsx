@@ -9,6 +9,7 @@ import { categories } from "@/data/categories";
 import { byCategory, byTag, getProduct, products, type Product } from "@/data/products";
 import { googleRating, testimonials, videos } from "@/data/content";
 import { site, waLink } from "@/config/site";
+import { stores } from "@/data/stores";
 import { addToQuote, toast } from "@/lib/store";
 import { cn } from "@/lib/utils";
 import { Counter, Reveal, SectionHeading, TiltCard } from "@/components/ui/reveal";
@@ -17,13 +18,41 @@ import { CategoryIcon } from "@/components/ui/misc";
 import { PaymentLogos } from "@/components/ui/payments";
 import { ProductRail } from "@/components/product/product-extras";
 import { ProductCard } from "@/components/product/product-card";
-import { MessengerIcon, WhatsAppIcon } from "@/components/widgets/icons";
+import { WhatsAppIcon } from "@/components/widgets/icons";
+
+/* ───────────── Bande défilante SODIS Electronics | LG ───────────── */
+export function BrandBand() {
+  const items = Array.from({ length: 6 });
+  return (
+    <section aria-label="SODIS Electronics, distributeur officiel LG" className="mt-10 overflow-hidden bg-primary py-5 sm:py-6">
+      <div className="flex w-max animate-marquee [animation-duration:32s] hover:[animation-play-state:paused]">
+        {[0, 1].map((half) => (
+          <ul key={half} className="flex shrink-0 items-center" aria-hidden={half === 1}>
+            {items.map((_, i) => (
+              <li key={i} className="flex shrink-0 items-center px-8 sm:px-12">
+                <Image
+                  src="/brand/sodis-lg-lockup.webp"
+                  alt={half === 0 && i === 0 ? "SODIS Electronics | LG" : ""}
+                  width={1200}
+                  height={199}
+                  sizes="260px"
+                  className="h-9 w-auto sm:h-12"
+                />
+                <span aria-hidden className="ml-16 h-1.5 w-1.5 rounded-full bg-accent sm:ml-24" />
+              </li>
+            ))}
+          </ul>
+        ))}
+      </div>
+    </section>
+  );
+}
 
 /* ───────────── Bandeau de réassurance ───────────── */
 const reassurance = [
   { icon: ShieldCheck, label: "Garantie constructeur LG" },
   { icon: Truck, label: "Livraison rapide partout en Côte d'Ivoire" },
-  { icon: CreditCard, label: "Paiement sécurisé · Mobile Money & carte" },
+  { icon: CreditCard, label: "Paiement à la livraison" },
   { icon: Wrench, label: "Installation par nos techniciens" },
   { icon: Headphones, label: "SAV disponible, vraiment" },
   { icon: BadgeCheck, label: "Distributeur officiel LG" },
@@ -391,10 +420,10 @@ export function PackConfigurator() {
 export function Stats() {
   return (
     <section className="container-x mt-32" aria-label="Chiffres clés">
-      <div className="grid grid-cols-2 gap-px overflow-hidden rounded-[32px] border border-line bg-line lg:grid-cols-4">
-        {site.stats.map((s) => (
+      <div className="grid gap-px overflow-hidden rounded-[32px] border border-line bg-line sm:grid-cols-3">
+        {site.stats.map((s) => ({ ...s, value: s.label === "Points de vente" ? stores.length : s.value })).map((s) => (
           <div key={s.label} className="bg-bg p-8 sm:p-10">
-            <Counter to={s.value} suffix={s.suffix} className="block whitespace-nowrap font-display text-[clamp(1.9rem,4vw,3.5rem)] font-semibold tracking-tight" />
+            <Counter to={s.value} prefix={s.prefix} suffix={s.suffix} step={s.step} className="block whitespace-nowrap font-display text-[clamp(1.9rem,4vw,3.5rem)] font-semibold tracking-tight" />
             <p className="mt-2 text-[14px] text-muted">{s.label}</p>
           </div>
         ))}
@@ -408,19 +437,17 @@ export function ServiceBlock() {
   const channels = [
     { icon: <WhatsAppIcon className="h-6 w-6" />, title: "WhatsApp", value: site.responseTime, href: waLink("Bonjour SODIS !"), color: "bg-[#25D366] text-white" },
     { icon: <Headphones className="h-6 w-6" />, title: "Téléphone", value: site.phone, href: site.phoneHref, color: "bg-primary text-white" },
-    { icon: <MessengerIcon className="h-6 w-6" />, title: "Messenger", value: "Réponse < 1 h", href: site.social.messenger, color: "bg-gradient-to-br from-[#00B2FF] to-[#A033FF] text-white" },
     { icon: <Clock className="h-6 w-6" />, title: "Email", value: site.email, href: `mailto:${site.email}`, color: "bg-soft text-ink" },
   ];
   const pillars = [
-    { icon: Wrench, title: "Installation", text: "TV murale, clim, lave-linge : posé, testé, expliqué." },
+    { icon: Wrench, title: "Installation", text: "TV murale, clim, lave-linge : posé, testé, expliqué.", href: undefined as string | undefined },
     { icon: ShieldCheck, title: "Garantie", text: "Garantie constructeur LG, gérée par nous, pour vous." },
     { icon: Headphones, title: "Support SAV", text: "Diagnostic rapide, intervention à domicile." },
-    { icon: BadgeCheck, title: "FAQ", text: "Les réponses à 90 % de vos questions.", href: "/faq" },
   ];
   return (
     <section className="container-x mt-32" aria-labelledby="svc-title">
       <SectionHeading eyebrow="Service client" title={<span id="svc-title">Un vrai humain, au bout du fil.</span>} lead="Avant, pendant et après l'achat, on reste joignable. C'est ça, la différence SODIS." />
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 sm:grid-cols-3">
         {channels.map((c, i) => (
           <Reveal key={c.title} delay={i * 0.06}>
             <TiltCard className="h-full rounded-[28px]">
@@ -435,7 +462,7 @@ export function ServiceBlock() {
           </Reveal>
         ))}
       </div>
-      <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-4 grid gap-4 sm:grid-cols-3">
         {pillars.map((p, i) => (
           <Reveal key={p.title} delay={i * 0.06}>
             <Link href={p.href ?? "/installation-sav"} className="group flex h-full items-start gap-4 rounded-[28px] bg-soft p-6 transition hover:bg-primary hover:text-white">
@@ -528,7 +555,7 @@ export function TrustBlock() {
             <p className="max-w-xs text-[14px] leading-relaxed text-muted">SODIS Electronics est distributeur officiel LG Electronics en Côte d&apos;Ivoire.</p>
           </div>
           <div className="mt-10">
-            <p className="mb-4 text-[13px] font-semibold">Moyens de paiement acceptés</p>
+            <p className="mb-4 text-[13px] font-semibold">Mode de paiement</p>
             <PaymentLogos />
           </div>
         </div>

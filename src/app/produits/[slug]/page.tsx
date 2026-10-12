@@ -8,7 +8,7 @@ import { getCategory } from "@/data/categories";
 import { site } from "@/config/site";
 import { Badge, Breadcrumbs, JsonLd } from "@/components/ui/misc";
 import { Reveal } from "@/components/ui/reveal";
-import { InstallmentSimulator, ProductActions, ProductRail, RecentlyViewed } from "@/components/product/product-extras";
+import { ProductActions, ProductRail } from "@/components/product/product-extras";
 import { ViewingNow } from "@/components/widgets/floating";
 import { PaymentLogos } from "@/components/ui/payments";
 
@@ -89,7 +89,7 @@ export default async function ProductPage({ params }: Props) {
                 { i: ShieldCheck, t: "Garantie constructeur LG" },
                 { i: Truck, t: "Livraison partout en CI" },
                 { i: Wrench, t: "Installation par nos techniciens" },
-                { i: CreditCard, t: "Mobile Money, carte, virement" },
+                { i: CreditCard, t: "Paiement à la livraison" },
               ].map(({ i: I, t }) => (
                 <li key={t} className="flex items-center gap-2.5 rounded-2xl border border-line p-3">
                   <I className="h-4 w-4 shrink-0 text-secondary" /> {t}
@@ -119,8 +119,7 @@ export default async function ProductPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="container-x mt-24 grid gap-8 lg:grid-cols-2">
-        <InstallmentSimulator defaultPrice={p.price} />
+      <section className="container-x mt-24 grid gap-8">
         <div className="flex flex-col justify-between rounded-[28px] bg-primary p-8 text-white">
           <div>
             <p className="eyebrow mb-2">Besoin de conseil ?</p>
@@ -149,7 +148,6 @@ export default async function ProductPage({ params }: Props) {
           </div>
         </section>
       )}
-      <RecentlyViewed exclude={p.slug} />
 
       <JsonLd
         data={{

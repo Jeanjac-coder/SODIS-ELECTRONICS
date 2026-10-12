@@ -8,7 +8,7 @@ import { WhatsAppIcon } from "@/components/widgets/icons";
 
 export const metadata: Metadata = {
   title: "FAQ — Questions fréquentes",
-  description: "Livraison, installation, paiement Mobile Money, garantie LG, SAV : toutes les réponses à vos questions sur SODIS Electronics.",
+  description: "Livraison, installation, paiement à la livraison, garantie LG, SAV : toutes les réponses à vos questions sur SODIS Electronics.",
   alternates: { canonical: "/faq" },
 };
 

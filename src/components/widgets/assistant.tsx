@@ -149,7 +149,7 @@ export function Assistant() {
     const hits = search(q, 6).flatMap((h) => (h.kind === "product" ? [h.product] : [])).slice(0, 3);
     if (/livr/i.test(q)) say({ from: "bot", text: "Nous livrons partout en Côte d'Ivoire : 24–48 h à Abidjan, 2 à 5 jours ouvrés à l'intérieur du pays. Détails sur la page Livraison." });
     else if (/garant|sav|panne/i.test(q)) say({ from: "bot", text: "Tous nos produits LG sont garantis constructeur, et notre SAV intervient à domicile. Voir la page Installation & SAV." });
-    else if (/paie|paye|wave|orange|mtn|moov/i.test(q)) say({ from: "bot", text: "Wave, Orange Money, MTN MoMo, Moov Money, carte bancaire, virement ou paiement à la livraison : c'est vous qui choisissez." });
+    else if (/paie|paye|wave|orange|mtn|moov|carte/i.test(q)) say({ from: "bot", text: "Chez SODIS, vous payez à la livraison : vous réglez une fois l'appareil reçu et vérifié. Simple et sans risque." });
     else if (hits.length) say({ from: "bot", text: "Voici ce que j'ai trouvé :", products: hits });
     else say({ from: "bot", text: "Je n'ai pas bien saisi. Choisissez une catégorie :", choices: start.choices });
   };

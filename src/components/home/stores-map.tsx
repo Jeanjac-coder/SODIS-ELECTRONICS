@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Clock, MapPin, Navigation, Phone } from "lucide-react";
-import { mapsDirections, mapsEmbed, stores } from "@/data/stores";
+import { mapsDirections, mapsEmbed, stores, storesTagline } from "@/data/stores";
 import { cn } from "@/lib/utils";
 
 /** Carte Google Maps des showrooms avec itinéraire, téléphone et horaires */
@@ -66,6 +66,7 @@ export function StoresMap() {
           </li>
         ))}
       </ul>
+      <p className="mt-4 px-2 text-[14px] font-medium text-secondary">{storesTagline}</p>
       </div>
       <div className="relative min-h-[420px] lg:min-h-[660px] overflow-hidden rounded-[32px] border border-line bg-soft">
         {!loaded && <div className="skeleton absolute inset-0" aria-hidden />}

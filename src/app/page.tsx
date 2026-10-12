@@ -1,16 +1,16 @@
 import { Hero } from "@/components/home/hero";
-import { BigCta, CategoryBento, PackConfigurator, ProductTabs, Reassurance, ServiceBlock, Stats, Testimonials, TrustBlock, VideoGallery } from "@/components/home/sections";
+import { BigCta, BrandBand, CategoryBento, PackConfigurator, ProductTabs, Reassurance, ServiceBlock, Stats, TrustBlock, VideoGallery } from "@/components/home/sections";
 import { StoresMap } from "@/components/home/stores-map";
 import { BlogCards } from "@/components/home/blog-cards";
 import { SectionHeading, Reveal } from "@/components/ui/reveal";
 import { ButtonLink } from "@/components/ui/button";
-import { RecentlyViewed } from "@/components/product/product-extras";
 import { posts } from "@/data/content";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
+      <BrandBand />
       <Reassurance />
 
       {/* Manifeste */}
@@ -28,7 +28,6 @@ export default function HomePage() {
       <PackConfigurator />
       <Stats />
       <ServiceBlock />
-      <Testimonials />
       <TrustBlock />
       <VideoGallery />
 
@@ -46,7 +45,6 @@ export default function HomePage() {
         <BlogCards posts={posts.slice(0, 3)} />
       </section>
 
-      <RecentlyViewed />
       <BigCta />
     </>
   );

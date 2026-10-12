@@ -45,13 +45,12 @@ export const site = {
    */
   liveSignals: { enabled: true, simulated: true },
   /** Paiement échelonné — désactiver si non proposé */
-  installments: { enabled: true, months: [3, 6, 12], monthlyRate: 0 },
+  installments: { enabled: false, months: [3, 6, 12], monthlyRate: 0 },
   /** Chiffres clés — À CONFIRMER */
   stats: [
-    { value: 10000, suffix: "+", label: "Clients équipés" },
-    { value: 10, suffix: "", label: "Points de vente" },
-    { value: 100, suffix: "+", label: "Références LG" },
-    { value: 10, suffix: " ans", label: "D'expérience" },
+    { value: 10000, prefix: "+", suffix: "", step: 1000, label: "Clients équipés" },
+    { value: 0, prefix: "", suffix: "", step: 1, label: "Points de vente" }, // calculé depuis src/data/stores.ts
+    { value: 100, prefix: "", suffix: "+", step: 1, label: "Références LG" },
   ],
 } as const;
 
@@ -63,7 +62,6 @@ export const nav = [
   { href: "/produits", label: "Produits", mega: true },
   { href: "/categories", label: "Catégories" },
   { href: "/promotions", label: "Promotions" },
-  { href: "/services", label: "Services" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ] as const;
@@ -78,10 +76,9 @@ export const footerNav = {
     { href: "/telechargements", label: "Téléchargements" },
   ],
   Services: [
-    { href: "/services", label: "Nos services" },
     { href: "/installation-sav", label: "Installation & SAV" },
     { href: "/devis", label: "Demande de devis" },
-    { href: "/services#configurateur", label: "Configurateur de packs" },
+    { href: "/#configurateur", label: "Configurateur de packs" },
     { href: "/faq", label: "FAQ" },
   ],
   SODIS: [

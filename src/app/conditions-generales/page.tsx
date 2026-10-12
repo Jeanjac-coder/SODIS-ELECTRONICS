@@ -35,7 +35,7 @@ export default function TermsPage() {
         {
           id: "paiement",
           title: "Paiement",
-          body: <p>Moyens acceptés : Wave, Orange Money, MTN Mobile Money, Moov Money, carte bancaire (Visa, Mastercard), virement bancaire et, selon la zone et le montant, paiement à la livraison. Un acompte peut être demandé pour les commandes spéciales ou les projets. Un paiement échelonné peut être proposé selon conditions, précisées par écrit. Chaque paiement donne lieu à un reçu.</p>,
+          body: <p>Le paiement s&apos;effectue à la livraison, à réception et après vérification du produit. Un acompte peut être demandé pour les commandes spéciales ou les projets, précisé par écrit dans le devis. Chaque paiement donne lieu à un reçu.</p>,
         },
         {
           id: "livraison",

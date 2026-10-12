@@ -36,7 +36,7 @@ export default function SavPage() {
           <ButtonLink href={waLink("Bonjour SODIS, j'ai besoin du SAV pour mon appareil.")} variant="whatsapp" size="lg">
             <WhatsAppIcon className="h-5 w-5" /> Déclarer une panne
           </ButtonLink>
-          <ButtonLink href="/services#rendez-vous" variant="outline" size="lg">
+          <ButtonLink href="/magasins#rendez-vous" variant="outline" size="lg">
             Planifier une installation
           </ButtonLink>
         </div>

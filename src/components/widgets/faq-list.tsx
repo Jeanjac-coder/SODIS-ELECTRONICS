@@ -25,7 +25,7 @@ export function FaqList({ limit }: { limit?: number }) {
       <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-center">
         <div className="relative flex-1">
           <Search className="pointer-events-none absolute left-5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" />
-          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Rechercher une question : livraison, Wave, garantie…" aria-label="Rechercher dans la FAQ" className="h-14 w-full rounded-full border border-line bg-elev pl-12 pr-5 text-[15px] outline-none focus:border-primary" />
+          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Rechercher une question : livraison, paiement, garantie…" aria-label="Rechercher dans la FAQ" className="h-14 w-full rounded-full border border-line bg-elev pl-12 pr-5 text-[15px] outline-none focus:border-primary" />
         </div>
         <div className="no-scrollbar flex gap-2 overflow-x-auto">
           {[null, ...faq.map((g) => g.cat)].map((c) => (

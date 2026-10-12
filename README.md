@@ -12,7 +12,7 @@ npm run build && npm start   # production
 ```
 
 ## Pages
-Accueil · Produits (+ fiche produit et fiche technique imprimable pour les 109 références) · Catégories · Promotions · Marques partenaires · Services · Installation & SAV · Demande de devis · À propos · Nos magasins · Blog · FAQ · Contact · Comparateur · Favoris · Panier de devis · Téléchargements · Confidentialité · Livraison · CGV · Mentions légales.
+Accueil · Produits (+ fiche produit et fiche technique imprimable pour les 109 références) · Catégories · Promotions · Marques partenaires · Installation & SAV · Demande de devis · À propos · Nos magasins · Blog · FAQ · Contact · Comparateur · Favoris · Panier de devis · Téléchargements. Paiement : à la livraison uniquement (`src/components/ui/payments.tsx`) · Confidentialité · Livraison · CGV · Mentions légales.
 
 ## Où modifier quoi
 | Fichier | Contenu |

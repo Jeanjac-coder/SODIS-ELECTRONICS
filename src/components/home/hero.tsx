@@ -26,16 +26,18 @@ type Slide = {
   /** Texte superposé (uniquement pour les visuels sans texte intégré) */
   overlay?: { eyebrow: string; title: string[]; text: string };
   position?: string;
+  /** "contain" : affiche le visuel en entier (formats plus larges que 2:1) */
+  fit?: "cover" | "contain";
 };
 
 const slides: Slide[] = [
   {
-    image: "/images/hero/lg-lave-vaisselle.webp",
-    alt: "Un couple souriant dans sa cuisine devant un lave-vaisselle LG ouvert. « Avec le lave-vaisselle LG, vous êtes sûr c'est propre ». LG Life's Good.",
-    label: "LG Lave-vaisselle",
-    href: waLink("Bonjour SODIS, je suis intéressé(e) par le lave-vaisselle LG. Pouvez-vous me donner le prix et la disponibilité ?"),
-    cta: "Commander",
-    external: true,
+    image: "/images/hero/sodis-maison.webp",
+    alt: "Une famille souriante dans un salon équipé LG : réfrigérateurs, cuisinière, micro-ondes, lave-linge, climatiseur, TV, enceintes XBOOM. « Une maison pensée pour vivre, partager et grandir ensemble. » SODIS Electronics.",
+    label: "SODIS Electronics · Toute la maison LG",
+    href: "/produits",
+    cta: "Découvrir",
+    fit: "contain",
   },
   {
     image: "/images/hero/lg-dualcool.webp",
@@ -130,6 +132,9 @@ export function Hero() {
             <div key={x.image} className={cn("h-slide", `h-slide-${k}`, "absolute inset-0", k === i ? "z-10" : "pointer-events-none z-0 opacity-0")} aria-hidden={k !== i}>
               <div className="h-scroll absolute inset-0">
                 <div className="h-parallax absolute inset-0 md:-inset-3">
+                  {x.fit === "contain" && (
+                    <Image src={x.image} alt="" aria-hidden fill sizes="400px" quality={40} className="scale-110 object-cover opacity-90 blur-2xl" />
+                  )}
                   <Image
                     src={x.image}
                     alt={x.alt}
@@ -137,7 +142,7 @@ export function Hero() {
                     priority={k === 0}
                     loading={k === 0 ? undefined : "lazy"}
                     sizes="(max-width: 1320px) 100vw, 1320px"
-                    className="h-img object-cover will-change-transform"
+                    className={cn("h-img will-change-transform", x.fit === "contain" ? "object-contain" : "object-cover")}
                     style={{ objectPosition: x.position ?? "center" }}
                   />
                 </div>

@@ -46,7 +46,7 @@ export const quoteSchema = z
     budget: z.enum(["< 500 000 FCFA", "500 000 – 1 500 000 FCFA", "1 500 000 – 5 000 000 FCFA", "> 5 000 000 FCFA", "À définir"]),
     delivery: z.boolean(),
     installation: z.boolean(),
-    payment: z.enum(["Comptant", "Paiement échelonné", "Virement entreprise", "À discuter"]),
+    payment: z.enum(["Paiement à la livraison", "À discuter"]),
     message: z.string().trim().max(2000).optional(),
     consent,
   })
