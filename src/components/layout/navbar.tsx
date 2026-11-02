@@ -256,16 +256,6 @@ export function Navbar() {
                 {theme === "dark" ? <Sun className="h-[19px] w-[19px]" strokeWidth={1.6} /> : <Moon className="h-[19px] w-[19px]" strokeWidth={1.6} />}
               </IconBtn>
             </span>
-            <a
-              href={waLink("Bonjour SODIS, j'ai une question.")}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="WhatsApp"
-              className="ml-1 hidden h-10 w-10 place-items-center rounded-full bg-[#25D366] text-white transition hover:scale-105 xl:grid"
-              data-cursor="hover"
-            >
-              <WhatsAppIcon className="h-[18px] w-[18px]" />
-            </a>
             <Link
               href="/devis"
               className="ml-2 hidden h-10 items-center gap-2 rounded-full bg-primary px-5 text-[13px] font-medium text-white transition hover:bg-secondary hover:text-white lg:inline-flex"

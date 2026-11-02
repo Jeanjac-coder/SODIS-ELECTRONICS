@@ -17,7 +17,7 @@ export default function DownloadsPage() {
     <>
       <PageHeader crumbs={[{ href: "/telechargements", label: "Téléchargements" }]} eyebrow="Espace téléchargement" title="Catalogues, fiches techniques, notices." lead="Toute la documentation utile, à garder sous la main ou à partager." />
       <section className="container-x">
-        <a href="/catalogue/catalogue-sodis-electronics-lg.pdf" download className="group flex flex-col items-start justify-between gap-6 rounded-[36px] bg-primary p-8 text-white transition hover:bg-secondary sm:flex-row sm:items-center sm:p-12">
+        <a href="/catalogue/catalogue-sodis-electronics-lg.pdf" download className="group flex flex-col items-start justify-between gap-6 rounded-3xl bg-primary p-8 text-white transition hover:bg-secondary sm:flex-row sm:items-center sm:p-12">
           <span className="flex items-center gap-5">
             <span className="grid h-16 w-16 place-items-center rounded-2xl bg-white/10">
               <FileText className="h-7 w-7" />

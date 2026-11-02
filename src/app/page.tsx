@@ -1,9 +1,8 @@
 import { Hero } from "@/components/home/hero";
-import { BigCta, BrandBand, CategoryBento, PackConfigurator, ProductTabs, Reassurance, ServiceBlock, Stats, TrustBlock, VideoGallery } from "@/components/home/sections";
+import { BrandBand, ProductTabs } from "@/components/home/sections";
+import { CategoryGrid, ContactCta, HomeHeading, WhySodis } from "@/components/home/home-sections";
 import { StoresMap } from "@/components/home/stores-map";
 import { BlogCards } from "@/components/home/blog-cards";
-import { SectionHeading, Reveal } from "@/components/ui/reveal";
-import { ButtonLink } from "@/components/ui/button";
 import { posts } from "@/data/content";
 
 export default function HomePage() {
@@ -11,41 +10,21 @@ export default function HomePage() {
     <>
       <Hero />
       <BrandBand />
-      <Reassurance />
-
-      {/* Manifeste */}
-      <section className="container-x mt-32">
-        <Reveal>
-          <p className="mx-auto max-w-5xl text-balance text-center font-display text-[clamp(1.6rem,3.4vw,3rem)] font-medium leading-[1.2] tracking-[-0.02em]">
-            Chez SODIS Electronics, on ne vend pas seulement des appareils.{" "}
-            <span className="text-muted">On équipe votre quotidien avec ce qui se fait de meilleur — et on reste là après la livraison.</span>
-          </p>
-        </Reveal>
-      </section>
-
-      <CategoryBento />
+      <CategoryGrid />
       <ProductTabs />
-      <PackConfigurator />
-      <Stats />
-      <ServiceBlock />
-      <TrustBlock />
-      <VideoGallery />
+      <WhySodis />
 
-      <section className="container-x mt-32" aria-labelledby="stores-title">
-        <SectionHeading eyebrow="Nos magasins" title={<span id="stores-title">Passez nous voir, on vous montre tout.</span>} lead="Venez voir l'OLED en vrai, écouter les XBOOM et repartir avec les bons conseils." />
+      <section className="container-x mt-24" aria-labelledby="stores-title">
+        <HomeHeading eyebrow="Nos magasins" title="Passez nous voir" id="stores-title" href="/magasins" linkLabel="Tous les magasins" />
         <StoresMap />
       </section>
 
-      <section className="container-x mt-32" aria-labelledby="blog-title">
-        <SectionHeading eyebrow="Blog & conseils" title={<span id="blog-title">Bien choisir, sans se tromper.</span>}>
-          <ButtonLink href="/blog" variant="outline" size="sm" className="mt-2 w-fit">
-            Tous les articles
-          </ButtonLink>
-        </SectionHeading>
+      <ContactCta />
+
+      <section className="container-x mt-24" aria-labelledby="blog-title">
+        <HomeHeading eyebrow="Conseils" title="Bien choisir, sans se tromper" id="blog-title" href="/blog" linkLabel="Tous les articles" />
         <BlogCards posts={posts.slice(0, 3)} />
       </section>
-
-      <BigCta />
     </>
   );
 }

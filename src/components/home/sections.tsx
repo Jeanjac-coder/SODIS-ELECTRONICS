@@ -24,7 +24,7 @@ import { WhatsAppIcon } from "@/components/widgets/icons";
 export function BrandBand() {
   const items = Array.from({ length: 6 });
   return (
-    <section aria-label="SODIS Electronics, distributeur officiel LG" className="mt-10 overflow-hidden bg-primary py-5 sm:py-6">
+    <section aria-label="SODIS Electronics, distributeur officiel LG" className="mt-16 overflow-hidden bg-primary py-4 sm:py-5">
       <div className="flex w-max animate-marquee [animation-duration:32s] hover:[animation-play-state:paused]">
         {[0, 1].map((half) => (
           <ul key={half} className="flex shrink-0 items-center" aria-hidden={half === 1}>
@@ -36,7 +36,7 @@ export function BrandBand() {
                   width={1200}
                   height={199}
                   sizes="260px"
-                  className="h-9 w-auto sm:h-12"
+                  className="h-8 w-auto sm:h-10"
                 />
                 <span aria-hidden className="ml-16 h-1.5 w-1.5 rounded-full bg-accent sm:ml-24" />
               </li>
@@ -77,12 +77,12 @@ export function Reassurance() {
 /* ───────────── Catégories (bento) ───────────── */
 export function CategoryBento() {
   return (
-    <section className="container-x mt-32" aria-labelledby="cat-title">
+    <section className="container-x mt-24" aria-labelledby="cat-title">
       <SectionHeading eyebrow="Univers" title={<span id="cat-title">Tout pour équiper votre quotidien.</span>} lead="Six univers, une seule exigence : le meilleur de LG, sélectionné et accompagné par SODIS." />
       <div className="grid auto-rows-[260px] gap-4 md:grid-cols-4 md:auto-rows-[300px]">
         {categories.map((c, i) => (
           <Reveal key={c.slug} delay={i * 0.06} className={cn(i === 0 && "md:col-span-2 md:row-span-2", (i === 1 || i === 2 || i === 5) && "md:col-span-2")}>
-            <Link href={`/categories/${c.slug}`} className="group relative flex h-full flex-col justify-between overflow-hidden rounded-[32px] bg-soft p-7 transition duration-500 hover:shadow-[0_40px_80px_-40px_rgb(0_0_0/0.35)]">
+            <Link href={`/categories/${c.slug}`} className="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl bg-soft p-7 transition duration-500 hover:shadow-[0_40px_80px_-40px_rgb(0_0_0/0.35)]">
               <div className="relative z-10">
                 <span className="mb-4 inline-grid h-11 w-11 place-items-center rounded-2xl bg-elev">
                   <CategoryIcon icon={c.icon} className="h-5 w-5" />
@@ -122,17 +122,23 @@ export function ProductTabs() {
   const [tab, setTab] = useState<(typeof tabs)[number]["id"]>("tendance");
   const items = useMemo(() => byTag(tab), [tab]);
   return (
-    <section className="container-x mt-32" aria-labelledby="tabs-title">
-      <SectionHeading eyebrow="Sélection" title={<span id="tabs-title">Ce que nos clients s&apos;arrachent.</span>}>
-        <div role="tablist" aria-label="Sélections" className="mt-4 inline-flex w-fit rounded-full bg-soft p-1">
+    <section className="container-x mt-24" aria-labelledby="tabs-title">
+      <div className="mb-2 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p className="eyebrow mb-3">Sélection</p>
+          <h2 id="tabs-title" className="h-section">
+            Les incontournables
+          </h2>
+        </div>
+        <div role="tablist" aria-label="Sélections" className="inline-flex w-fit rounded-full bg-soft p-1">
           {tabs.map((t) => (
-            <button key={t.id} role="tab" aria-selected={tab === t.id} onClick={() => setTab(t.id)} className="relative rounded-full px-5 py-2.5 text-[14px] font-medium">
+            <button key={t.id} role="tab" aria-selected={tab === t.id} onClick={() => setTab(t.id)} className="relative rounded-full px-4 py-2 text-[13px] font-medium sm:px-5">
               {tab === t.id && <motion.span layoutId="tab-pill" className="absolute inset-0 rounded-full bg-elev shadow-sm" transition={{ type: "spring", stiffness: 400, damping: 32 }} />}
               <span className={cn("relative", tab === t.id ? "text-ink" : "text-muted")}>{t.label}</span>
             </button>
           ))}
         </div>
-      </SectionHeading>
+      </div>
       <AnimatePresence mode="wait">
         <motion.div key={tab} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.35 }}>
           <ProductRail items={items} label={tabs.find((t) => t.id === tab)!.label} />
@@ -293,8 +299,8 @@ export function FlashDeals({ compact }: { compact?: boolean }) {
   useEffect(() => setEnd(endOfWeek()), []);
   const t = useCountdown(end);
   return (
-    <section className={cn("container-x", !compact && "mt-32")} aria-labelledby="flash-title">
-      <div className="relative overflow-hidden rounded-[40px] bg-primary p-8 text-white sm:p-12 lg:p-16">
+    <section className={cn("container-x", !compact && "mt-24")} aria-labelledby="flash-title">
+      <div className="relative overflow-hidden rounded-3xl bg-primary p-8 text-white sm:p-12 lg:p-16">
         <div aria-hidden className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-secondary/50 blur-[120px]" />
         <div className="relative grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:items-center">
           <div>
@@ -350,10 +356,10 @@ export function PackConfigurator() {
   const T = getProduct(tv)!;
   const B = getProduct(bar)!;
   return (
-    <section id="configurateur" className="container-x mt-32 scroll-mt-28" aria-labelledby="pack-title">
+    <section id="configurateur" className="container-x mt-24 scroll-mt-28" aria-labelledby="pack-title">
       <SectionHeading eyebrow="Configurateur" title={<span id="pack-title">Composez votre pack cinéma.</span>} lead="Une TV, une barre de son, une installation propre. Choisissez, on s'occupe du reste — et le prix pack est toujours plus doux." />
       <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr]">
-        <div className="relative grid min-h-[420px] place-items-center overflow-hidden rounded-[40px] bg-soft p-10">
+        <div className="relative grid min-h-[420px] place-items-center overflow-hidden rounded-3xl bg-soft p-10">
           <AnimatePresence mode="popLayout">
             <motion.div key={tv} initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.96 }} transition={{ duration: 0.6 }} className="relative w-[78%]">
               <Image src={T.image} alt={T.name} width={600} height={460} className="h-auto w-full object-contain drop-shadow-2xl" />
@@ -419,8 +425,8 @@ export function PackConfigurator() {
 /* ───────────── Chiffres clés ───────────── */
 export function Stats() {
   return (
-    <section className="container-x mt-32" aria-label="Chiffres clés">
-      <div className="grid gap-px overflow-hidden rounded-[32px] border border-line bg-line sm:grid-cols-3">
+    <section className="container-x mt-24" aria-label="Chiffres clés">
+      <div className="grid gap-px overflow-hidden rounded-3xl border border-line bg-line sm:grid-cols-3">
         {site.stats.map((s) => ({ ...s, value: s.label === "Points de vente" ? stores.length : s.value })).map((s) => (
           <div key={s.label} className="bg-bg p-8 sm:p-10">
             <Counter to={s.value} prefix={s.prefix} suffix={s.suffix} step={s.step} className="block whitespace-nowrap font-display text-[clamp(1.9rem,4vw,3.5rem)] font-semibold tracking-tight" />
@@ -445,13 +451,13 @@ export function ServiceBlock() {
     { icon: Headphones, title: "Support SAV", text: "Diagnostic rapide, intervention à domicile." },
   ];
   return (
-    <section className="container-x mt-32" aria-labelledby="svc-title">
+    <section className="container-x mt-24" aria-labelledby="svc-title">
       <SectionHeading eyebrow="Service client" title={<span id="svc-title">Un vrai humain, au bout du fil.</span>} lead="Avant, pendant et après l'achat, on reste joignable. C'est ça, la différence SODIS." />
       <div className="grid gap-4 sm:grid-cols-3">
         {channels.map((c, i) => (
           <Reveal key={c.title} delay={i * 0.06}>
-            <TiltCard className="h-full rounded-[28px]">
-              <a href={c.href} target={c.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" className="flex h-full flex-col gap-6 rounded-[28px] border border-line bg-elev p-7 transition hover:shadow-xl">
+            <TiltCard className="h-full rounded-[20px]">
+              <a href={c.href} target={c.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" className="flex h-full flex-col gap-6 rounded-[20px] border border-line bg-elev p-7 transition hover:shadow-xl">
                 <span className={cn("grid h-14 w-14 place-items-center rounded-2xl", c.color)}>{c.icon}</span>
                 <span>
                   <span className="block text-[18px] font-semibold">{c.title}</span>
@@ -465,7 +471,7 @@ export function ServiceBlock() {
       <div className="mt-4 grid gap-4 sm:grid-cols-3">
         {pillars.map((p, i) => (
           <Reveal key={p.title} delay={i * 0.06}>
-            <Link href={p.href ?? "/installation-sav"} className="group flex h-full items-start gap-4 rounded-[28px] bg-soft p-6 transition hover:bg-primary hover:text-white">
+            <Link href={p.href ?? "/installation-sav"} className="group flex h-full items-start gap-4 rounded-[20px] bg-soft p-6 transition hover:bg-primary hover:text-white">
               <p.icon className="mt-0.5 h-5 w-5 shrink-0 text-secondary" strokeWidth={1.6} />
               <span>
                 <span className="block font-semibold">{p.title}</span>
@@ -491,7 +497,7 @@ function Stars({ n, className }: { n: number; className?: string }) {
 }
 export function Testimonials() {
   return (
-    <section className="mt-32 overflow-hidden" aria-labelledby="rev-title">
+    <section className="mt-24 overflow-hidden" aria-labelledby="rev-title">
       <div className="container-x">
         <SectionHeading eyebrow="Avis clients" title={<span id="rev-title">Ils nous ont fait confiance.</span>}>
           <div className="mt-2 flex items-center gap-4 rounded-full border border-line px-5 py-3 w-fit">
@@ -512,7 +518,7 @@ export function Testimonials() {
       <div className="relative [mask-image:linear-gradient(90deg,transparent,#000_6%,#000_94%,transparent)]">
         <ul className="flex w-max animate-marquee gap-5 py-2 [animation-duration:70s] hover:[animation-play-state:paused]">
           {[...testimonials, ...testimonials].map((t, i) => (
-            <li key={i} aria-hidden={i >= testimonials.length} className="w-[340px] shrink-0 rounded-[28px] border border-line bg-elev p-7 sm:w-[400px]">
+            <li key={i} aria-hidden={i >= testimonials.length} className="w-[340px] shrink-0 rounded-[20px] border border-line bg-elev p-7 sm:w-[400px]">
               <Stars n={t.rating} />
               <p className="mt-4 text-[15px] leading-relaxed text-ink">« {t.text} »</p>
               <div className="mt-6 flex items-center gap-3">
@@ -541,8 +547,8 @@ export function TrustBlock() {
     { title: "Facture officielle", text: "Particuliers & entreprises" },
   ];
   return (
-    <section className="container-x mt-32" aria-labelledby="trust-title">
-      <div className="grid gap-12 rounded-[40px] border border-line p-8 sm:p-12 lg:grid-cols-2 lg:p-16">
+    <section className="container-x mt-24" aria-labelledby="trust-title">
+      <div className="grid gap-12 rounded-3xl border border-line p-8 sm:p-12 lg:grid-cols-2 lg:p-16">
         <div>
           <p className="eyebrow mb-4">Confiance</p>
           <h2 id="trust-title" className="h-section text-balance">
@@ -579,13 +585,13 @@ export function TrustBlock() {
 export function VideoGallery() {
   const [playing, setPlaying] = useState<string | null>(null);
   return (
-    <section className="container-x mt-32" aria-labelledby="vid-title">
+    <section className="container-x mt-24" aria-labelledby="vid-title">
       <SectionHeading eyebrow="En vidéo" title={<span id="vid-title">Voyez-les en action.</span>} lead="Démonstrations produits officielles LG." />
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {videos.map((v, i) => (
           <Reveal key={v.title} delay={i * 0.06}>
             {playing === v.title && v.youtubeId ? (
-              <div className="aspect-[4/5] overflow-hidden rounded-[28px] bg-black">
+              <div className="aspect-[4/5] overflow-hidden rounded-[20px] bg-black">
                 <iframe className="h-full w-full" src={`https://www.youtube-nocookie.com/embed/${v.youtubeId}?autoplay=1`} title={v.title} allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen loading="lazy" />
               </div>
             ) : (
@@ -599,7 +605,7 @@ export function VideoGallery() {
                     setPlaying(v.title);
                   }
                 }}
-                className="group relative flex aspect-[4/5] cursor-pointer flex-col justify-end overflow-hidden rounded-[28px] bg-gradient-to-b from-soft to-line/60 p-6"
+                className="group relative flex aspect-[4/5] cursor-pointer flex-col justify-end overflow-hidden rounded-[20px] bg-gradient-to-b from-soft to-line/60 p-6"
               >
                 <Image src={v.image} alt="" fill sizes="(max-width: 640px) 90vw, 25vw" className="object-contain p-10 pb-24 transition duration-[1200ms] group-hover:scale-105" />
                 <span className="absolute left-1/2 top-[38%] grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-ink shadow-xl backdrop-blur transition group-hover:scale-110 group-hover:bg-secondary group-hover:text-white">
@@ -618,9 +624,9 @@ export function VideoGallery() {
 /* ───────────── Grand CTA ───────────── */
 export function BigCta() {
   return (
-    <section className="container-x mt-32">
+    <section className="container-x mt-24">
       <Reveal scale={0.97}>
-        <div className="relative overflow-hidden rounded-[40px] bg-soft px-8 py-20 text-center sm:px-16 sm:py-28">
+        <div className="relative overflow-hidden rounded-3xl bg-soft px-8 py-20 text-center sm:px-16 sm:py-28">
           <div aria-hidden className="absolute left-1/2 top-0 h-72 w-[60%] -translate-x-1/2 rounded-full bg-secondary/15 blur-[100px]" />
           <p className="eyebrow relative mb-5">Projet particulier ou professionnel</p>
           <h2 className="h-display relative mx-auto max-w-4xl text-balance">On vous prépare une offre sur mesure.</h2>

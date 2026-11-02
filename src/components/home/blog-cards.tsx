@@ -9,7 +9,7 @@ export function BlogCards({ posts }: { posts: Post[] }) {
       {posts.map((p, i) => (
         <Reveal key={p.slug} delay={i * 0.06} as="article">
           <Link href={`/blog/${p.slug}`} className="group block">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] bg-soft">
+            <div className="relative aspect-[16/9] overflow-hidden sm:aspect-[4/3] rounded-[20px] bg-soft">
               <Image src={p.image} alt="" fill sizes="(max-width: 768px) 90vw, 33vw" className="object-contain p-12 transition duration-[1200ms] ease-[var(--ease-premium)] group-hover:scale-105" />
               <span className="glass absolute left-4 top-4 rounded-full px-3 py-1 text-[11px] font-semibold">{p.category}</span>
             </div>

@@ -47,7 +47,7 @@ export default function SavPage() {
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {installs.map((x, i) => (
             <Reveal key={x.title} delay={i * 0.05}>
-              <div className="h-full rounded-[28px] bg-soft p-7">
+              <div className="h-full rounded-[20px] bg-soft p-7">
                 <h3 className="text-[18px] font-semibold">{x.title}</h3>
                 <ul className="mt-5 space-y-3">
                   {x.items.map((it) => (
@@ -62,11 +62,11 @@ export default function SavPage() {
         </div>
       </section>
 
-      <section className="container-x mt-32">
+      <section className="container-x mt-24">
         <SectionHeading eyebrow="Service après-vente" title="Une panne ? On s'en occupe, en 4 étapes." />
         <ol className="grid gap-4 md:grid-cols-4">
           {steps.map((s, i) => (
-            <Reveal as="li" key={s.title} delay={i * 0.06} className="relative rounded-[28px] border border-line p-7">
+            <Reveal as="li" key={s.title} delay={i * 0.06} className="relative rounded-[20px] border border-line p-7">
               <span className="font-display text-5xl font-semibold text-line">0{i + 1}</span>
               <s.icon className="mt-6 h-6 w-6 text-secondary" strokeWidth={1.6} />
               <h3 className="mt-4 text-[17px] font-semibold">{s.title}</h3>
@@ -76,8 +76,8 @@ export default function SavPage() {
         </ol>
       </section>
 
-      <section className="container-x mt-32 grid gap-6 lg:grid-cols-3">
-        <div className="rounded-[32px] bg-primary p-8 text-white lg:col-span-1">
+      <section className="container-x mt-24 grid gap-6 lg:grid-cols-3">
+        <div className="rounded-3xl bg-primary p-8 text-white lg:col-span-1">
           <p className="eyebrow mb-3">Garantie</p>
           <h2 className="font-display text-2xl font-semibold tracking-tight">Garantie constructeur LG sur tout le catalogue.</h2>
           <p className="mt-4 text-[15px] leading-relaxed opacity-70">Conservez votre facture : elle fait foi. La durée et les conditions de garantie dépendent de la catégorie de produit et sont indiquées sur votre facture.</p>
@@ -86,12 +86,12 @@ export default function SavPage() {
           </Link>
           <p className="mt-10 text-[13px] opacity-60">SAV : {site.emailSav}</p>
         </div>
-        <div className="rounded-[32px] border border-line p-6 sm:p-10 lg:col-span-2">
+        <div className="rounded-3xl border border-line p-6 sm:p-10 lg:col-span-2">
           <h2 className="mb-6 font-display text-2xl font-semibold tracking-tight">Écrire au SAV</h2>
           <ContactForm />
         </div>
       </section>
-      <section className="container-x mt-6 rounded-[32px] bg-soft p-6 sm:p-10">
+      <section className="container-x mt-6 rounded-3xl bg-soft p-6 sm:p-10">
         <h2 className="mb-6 font-display text-2xl font-semibold tracking-tight">Demande de rappel SAV</h2>
         <CallbackForm />
       </section>

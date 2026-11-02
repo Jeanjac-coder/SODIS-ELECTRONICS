@@ -195,7 +195,7 @@ export function SearchDialog() {
             animate={{ y: 0, scale: 1 }}
             exit={{ y: 10, scale: 0.98 }}
             transition={{ type: "spring", stiffness: 300, damping: 28 }}
-            className="relative w-full max-w-2xl overflow-hidden rounded-[28px] border border-line bg-elev shadow-2xl"
+            className="relative w-full max-w-2xl overflow-hidden rounded-[20px] border border-line bg-elev shadow-2xl"
           >
             <form
               onSubmit={(e) => {

@@ -33,7 +33,7 @@ export default async function SpecSheet({ params }: Props) {
           { href: `/produits/${p.slug}/fiche`, label: "Fiche technique" },
         ]}
       />
-      <article className="rounded-[32px] border border-line bg-elev p-8 print:border-0 print:p-0 sm:p-12">
+      <article className="rounded-3xl border border-line bg-elev p-8 print:border-0 print:p-0 sm:p-12">
         <header className="flex flex-wrap items-start justify-between gap-6 border-b border-line pb-8">
           <div>
             <Image src="/brand/sodis-logo.webp" alt="SODIS Electronics" width={667} height={218} className="h-10 w-auto" />

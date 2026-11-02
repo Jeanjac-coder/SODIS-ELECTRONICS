@@ -36,7 +36,7 @@ export default async function PostPage({ params }: Props) {
         <p className="mt-6 text-[14px] text-muted">
           {new Date(p.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })} · {p.read} min de lecture · Par l&apos;équipe SODIS
         </p>
-        <div className="relative my-12 aspect-[16/9] overflow-hidden rounded-[32px] bg-soft">
+        <div className="relative my-12 aspect-[16/9] overflow-hidden rounded-3xl bg-soft">
           <Image src={p.image} alt="" fill priority sizes="(max-width: 768px) 100vw, 768px" className="object-contain p-12" />
         </div>
         <div className="prose-sodis text-[17px]">
@@ -47,7 +47,7 @@ export default async function PostPage({ params }: Props) {
             </div>
           ))}
         </div>
-        <div className="mt-16 rounded-[28px] bg-soft p-8">
+        <div className="mt-16 rounded-[20px] bg-soft p-8">
           <p className="font-display text-xl font-semibold">Besoin d&apos;un avis personnalisé ?</p>
           <p className="mt-2 text-muted">Nos conseillers vous répondent sur WhatsApp ou en showroom.</p>
           <ButtonLink href="/devis" className="mt-6">
@@ -55,7 +55,7 @@ export default async function PostPage({ params }: Props) {
           </ButtonLink>
         </div>
       </article>
-      <section className="container-x mt-32">
+      <section className="container-x mt-24">
         <h2 className="h-section mb-10">À lire aussi</h2>
         <BlogCards posts={posts.filter((x) => x.slug !== p.slug).slice(0, 3)} />
       </section>

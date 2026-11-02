@@ -24,7 +24,7 @@ export default function ContactPage() {
       <PageHeader crumbs={[{ href: "/contact", label: "Contact" }]} eyebrow="Contact" title="Parlons de votre projet." lead="Une question, un devis, un souci technique ? Choisissez le canal qui vous arrange : on répond vite, et on répond bien." />
       <section className="container-x grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {channels.map((c) => (
-          <a key={c.label} href={c.href} target={c.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" className="group flex items-center gap-4 rounded-[28px] border border-line p-6 transition hover:shadow-xl">
+          <a key={c.label} href={c.href} target={c.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" className="group flex items-center gap-4 rounded-[20px] border border-line p-6 transition hover:shadow-xl">
             <span className={`grid h-12 w-12 shrink-0 place-items-center rounded-2xl ${c.cls}`}>{c.icon}</span>
             <span className="min-w-0">
               <span className="block text-[15px] font-semibold">{c.label}</span>
@@ -34,12 +34,12 @@ export default function ContactPage() {
         ))}
       </section>
       <section className="container-x mt-16 grid gap-10 lg:grid-cols-[1.4fr_1fr]">
-        <div className="rounded-[32px] border border-line p-6 sm:p-10">
+        <div className="rounded-3xl border border-line p-6 sm:p-10">
           <h2 className="mb-8 font-display text-2xl font-semibold tracking-tight">Écrivez-nous</h2>
           <ContactForm />
         </div>
         <div className="space-y-6">
-          <div className="rounded-[32px] bg-soft p-8">
+          <div className="rounded-3xl bg-soft p-8">
             <h2 className="mb-6 font-display text-xl font-semibold">Infos pratiques</h2>
             <ul className="space-y-4 text-[14px]">
               <li className="flex gap-3">
@@ -60,7 +60,7 @@ export default function ContactPage() {
               ))}
             </div>
           </div>
-          <div className="rounded-[32px] border border-line p-8">
+          <div className="rounded-3xl border border-line p-8">
             <h2 className="mb-6 font-display text-xl font-semibold">Demande de rappel</h2>
             <CallbackForm compact />
           </div>

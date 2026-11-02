@@ -28,7 +28,7 @@ export default function BrandsPage() {
       <PageHeader crumbs={[{ href: "/marques", label: "Marques partenaires" }]} eyebrow="Partenaires" title="Distributeur officiel LG en Côte d'Ivoire." lead="Nous avons choisi de travailler avec les marques qui partagent notre exigence. Au cœur de notre offre : LG Electronics, leader mondial de l'électronique grand public." />
       <section className="container-x">
         <Reveal>
-          <div className="grid items-center gap-10 overflow-hidden rounded-[40px] bg-primary p-10 text-white md:grid-cols-[auto_1fr] md:p-16">
+          <div className="grid items-center gap-10 overflow-hidden rounded-3xl bg-primary p-10 text-white md:grid-cols-[auto_1fr] md:p-16">
             <span className="grid h-40 w-40 place-items-center rounded-full bg-[#A50034] font-display text-6xl font-bold text-white">LG</span>
             <div>
               <p className="eyebrow mb-3">Partenaire principal</p>
@@ -48,12 +48,12 @@ export default function BrandsPage() {
           </div>
         </Reveal>
       </section>
-      <section className="container-x mt-32">
+      <section className="container-x mt-24">
         <SectionHeading eyebrow="Technologies" title="L'innovation LG, expliquée simplement." />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {techs.map((t, i) => (
             <Reveal key={t.name} delay={i * 0.05}>
-              <div className="h-full rounded-[28px] border border-line p-8">
+              <div className="h-full rounded-[20px] border border-line p-8">
                 <p className="font-display text-2xl font-semibold tracking-tight">{t.name}</p>
                 <p className="mt-3 text-[15px] leading-relaxed text-muted">{t.text}</p>
               </div>
@@ -61,7 +61,7 @@ export default function BrandsPage() {
           ))}
         </div>
       </section>
-      <section className="container-x mt-32 grid items-center gap-10 rounded-[40px] bg-soft p-10 md:grid-cols-2 md:p-16">
+      <section className="container-x mt-24 grid items-center gap-10 rounded-3xl bg-soft p-10 md:grid-cols-2 md:p-16">
         <div>
           <h2 className="h-section text-balance">Vous êtes une marque ? Devenons partenaires.</h2>
           <p className="lead mt-4">Nous développons notre portefeuille avec des marques premium d&apos;électronique et d&apos;électroménager. Parlons distribution en Côte d&apos;Ivoire.</p>

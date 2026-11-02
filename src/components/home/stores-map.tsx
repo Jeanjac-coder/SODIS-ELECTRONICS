@@ -13,7 +13,7 @@ export function StoresMap() {
   return (
     <div className="grid gap-4 lg:grid-cols-[400px_1fr]">
       <div>
-      <ul className="no-scrollbar space-y-2.5 lg:max-h-[620px] lg:overflow-y-auto lg:pr-1" aria-label="Liste des magasins" data-lenis-prevent>
+      <ul className="no-scrollbar max-h-[420px] space-y-2.5 overflow-y-auto pr-1 lg:max-h-[620px]" aria-label="Liste des magasins" data-lenis-prevent>
         {stores.map((st) => (
           <li key={st.id}>
             <div
@@ -22,7 +22,7 @@ export function StoresMap() {
               aria-pressed={active === st.id}
               onClick={() => setActive(st.id)}
               onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && setActive(st.id)}
-              className={cn("cursor-pointer rounded-[24px] border p-5 transition", active === st.id ? "border-primary bg-elev shadow-xl" : "border-line hover:border-primary/40")}
+              className={cn("cursor-pointer rounded-[20px] border p-5 transition", active === st.id ? "border-primary bg-elev shadow-xl" : "border-line hover:border-primary/40")}
             >
               <div className="flex items-start justify-between gap-3">
                 <div>
@@ -68,7 +68,7 @@ export function StoresMap() {
       </ul>
       <p className="mt-4 px-2 text-[14px] font-medium text-secondary">{storesTagline}</p>
       </div>
-      <div className="relative min-h-[420px] lg:min-h-[660px] overflow-hidden rounded-[32px] border border-line bg-soft">
+      <div className="relative min-h-[300px] overflow-hidden rounded-3xl border border-line bg-soft sm:min-h-[420px] lg:min-h-[660px]">
         {!loaded && <div className="skeleton absolute inset-0" aria-hidden />}
         <iframe
           key={s.id}

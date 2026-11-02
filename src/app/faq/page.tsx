@@ -18,7 +18,7 @@ export default function FaqPage() {
       <PageHeader crumbs={[{ href: "/faq", label: "FAQ" }]} eyebrow="Aide" title="Vos questions, nos réponses." lead="Tout ce qu'il faut savoir sur les commandes, la livraison, le paiement et le SAV. Et si votre question n'y est pas, demandez-nous." />
       <section className="container-x">
         <FaqList />
-        <div className="mt-20 flex flex-col items-start justify-between gap-6 rounded-[32px] bg-soft p-8 sm:flex-row sm:items-center sm:p-12">
+        <div className="mt-20 flex flex-col items-start justify-between gap-6 rounded-3xl bg-soft p-8 sm:flex-row sm:items-center sm:p-12">
           <div>
             <p className="font-display text-2xl font-semibold tracking-tight">Vous n&apos;avez pas trouvé ?</p>
             <p className="mt-1 text-muted">Un conseiller vous répond en quelques minutes.</p>

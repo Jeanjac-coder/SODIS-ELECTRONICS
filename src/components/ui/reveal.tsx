@@ -102,7 +102,7 @@ export function SectionHeading({
   children?: ReactNode;
 }) {
   return (
-    <div className={cn("mb-12 flex flex-col gap-4 md:mb-16", align === "center" && "items-center text-center", className)}>
+    <div className={cn("mb-10 flex flex-col gap-3 md:mb-12", align === "center" && "items-center text-center", className)}>
       {eyebrow && (
         <Reveal>
           <p className="eyebrow">{eyebrow}</p>

@@ -14,7 +14,7 @@ const resolve = (slugs: string[]) => slugs.map(getProduct).filter(Boolean) as Pr
 
 function Empty({ icon, title, text }: { icon: React.ReactNode; title: string; text: string }) {
   return (
-    <div className="flex flex-col items-center rounded-[32px] bg-soft px-6 py-20 text-center">
+    <div className="flex flex-col items-center rounded-3xl bg-soft px-6 py-20 text-center">
       <span className="grid h-16 w-16 place-items-center rounded-full bg-elev">{icon}</span>
       <p className="mt-6 font-display text-2xl font-semibold">{title}</p>
       <p className="mt-2 max-w-md text-muted">{text}</p>
@@ -42,7 +42,7 @@ export function CompareView() {
   if (!items.length) return <Empty icon={<GitCompare className="h-6 w-6" />} title="Le comparateur est vide" text="Ajoutez jusqu'à 4 produits avec l'icône « Comparer » pour les voir côte à côte." />;
   const rows = Math.max(...items.map((p) => p.specs.length));
   return (
-    <div className="overflow-x-auto rounded-[32px] border border-line">
+    <div className="overflow-x-auto rounded-3xl border border-line">
       <table className="w-full min-w-[720px] text-left text-[14px]">
         <thead>
           <tr>
@@ -108,7 +108,7 @@ export function QuoteCartView() {
   const text = `Bonjour SODIS, je souhaite un devis pour :\n${cart.map((i) => `• ${i.qty} × ${getProduct(i.slug)?.name} (${getProduct(i.slug)?.model})`).join("\n")}`;
   return (
     <div className="grid gap-10 lg:grid-cols-[1fr_380px]">
-      <ul className="divide-y divide-line rounded-[32px] border border-line">
+      <ul className="divide-y divide-line rounded-3xl border border-line">
         {cart.map((it) => {
           const p = getProduct(it.slug);
           if (!p) return null;
@@ -141,7 +141,7 @@ export function QuoteCartView() {
           );
         })}
       </ul>
-      <aside className="h-fit space-y-4 rounded-[32px] bg-soft p-8 lg:sticky lg:top-24">
+      <aside className="h-fit space-y-4 rounded-3xl bg-soft p-8 lg:sticky lg:top-24">
         <p className="font-display text-2xl font-semibold">Récapitulatif</p>
         <p className="text-muted">
           {total} article{total > 1 ? "s" : ""} · {cart.length} référence{cart.length > 1 ? "s" : ""}

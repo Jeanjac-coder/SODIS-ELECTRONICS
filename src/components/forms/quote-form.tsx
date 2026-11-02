@@ -83,7 +83,6 @@ export function QuoteForm() {
         body={`Merci ${v.name.split(" ")[0]}. Un conseiller SODIS prépare votre offre personnalisée et vous recontacte sous 24 h ouvrées (souvent bien avant).`}
         refId={m.data.ref}
         delivered={m.data.delivered}
-        emailSubject="Demande de devis"
         whatsappText={`Bonjour SODIS, demande de devis (${v.customerType}${v.company ? ` – ${v.company}` : ""}) :\n${v.items
           .map((i) => `• ${i.qty} × ${getProduct(i.slug)?.name ?? i.slug}`)
           .join("\n")}\nBudget : ${v.budget}\nLivraison : ${v.delivery ? "oui" : "non"} · Installation : ${v.installation ? "oui" : "non"}\nVille : ${v.city}`}
@@ -95,7 +94,7 @@ export function QuoteForm() {
     <form
       onSubmit={handleSubmit((d) => m.mutate(d, { onSuccess: () => clearQuote() }))}
       noValidate
-      className="rounded-[32px] border border-line bg-elev p-6 shadow-[var(--shadow)] sm:p-10"
+      className="rounded-3xl border border-line bg-elev p-6 shadow-[var(--shadow)] sm:p-10"
     >
       {/* Progression */}
       <ol className="mb-10 grid grid-cols-4 gap-2" aria-label="Étapes">

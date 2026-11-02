@@ -164,7 +164,7 @@ export function Assistant() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 30, scale: 0.96 }}
           transition={{ type: "spring", stiffness: 260, damping: 26 }}
-          className="fixed bottom-24 right-4 z-[80] flex h-[min(620px,calc(100dvh-8rem))] w-[min(400px,calc(100vw-2rem))] flex-col overflow-hidden rounded-[28px] border border-line bg-elev shadow-2xl sm:right-6"
+          className="fixed bottom-24 right-4 z-[80] flex h-[min(620px,calc(100dvh-8rem))] w-[min(400px,calc(100vw-2rem))] flex-col overflow-hidden rounded-[20px] border border-line bg-elev shadow-2xl sm:right-6"
         >
           <div className="flex items-center gap-3 border-b border-line bg-primary px-5 py-4 text-white">
             <span className="grid h-9 w-9 place-items-center rounded-full bg-secondary text-white">

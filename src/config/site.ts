@@ -78,7 +78,7 @@ export const footerNav = {
   Services: [
     { href: "/installation-sav", label: "Installation & SAV" },
     { href: "/devis", label: "Demande de devis" },
-    { href: "/#configurateur", label: "Configurateur de packs" },
+    { href: "/promotions#configurateur", label: "Configurateur de packs" },
     { href: "/faq", label: "FAQ" },
   ],
   SODIS: [

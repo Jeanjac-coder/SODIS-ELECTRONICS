@@ -17,9 +17,9 @@ export default function StoresPage() {
       <section className="container-x">
         <StoresMap />
       </section>
-      <section id="rendez-vous" className="container-x mt-32 grid scroll-mt-28 gap-10 lg:grid-cols-[1fr_1.3fr]">
+      <section id="rendez-vous" className="container-x mt-24 grid scroll-mt-28 gap-10 lg:grid-cols-[1fr_1.3fr]">
         <SectionHeading eyebrow="Rendez-vous" title="Réservez une démonstration privée." lead="Un conseiller vous reçoit sans attente, à l'heure choisie." className="mb-0" />
-        <div className="rounded-[32px] border border-line p-6 sm:p-10">
+        <div className="rounded-3xl border border-line p-6 sm:p-10">
           <AppointmentForm />
         </div>
       </section>

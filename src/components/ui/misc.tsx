@@ -70,19 +70,19 @@ export function PageHeader({
   className?: string;
 }) {
   return (
-    <section className={cn("container-x pt-32 pb-14 md:pt-40 md:pb-20", className)}>
-      <Breadcrumbs items={crumbs} className="mb-10" />
+    <section className={cn("container-x pt-28 pb-12 md:pt-36 md:pb-14", className)}>
+      <Breadcrumbs items={crumbs} className="mb-8" />
       {eyebrow && (
         <Reveal>
           <p className="eyebrow mb-5">{eyebrow}</p>
         </Reveal>
       )}
       <Reveal delay={0.05}>
-        <h1 className="h-display max-w-5xl text-balance">{title}</h1>
+        <h1 className="h-display max-w-4xl text-balance">{title}</h1>
       </Reveal>
       {lead && (
         <Reveal delay={0.12}>
-          <p className="lead mt-6 max-w-2xl text-pretty">{lead}</p>
+          <p className="lead mt-5 max-w-2xl text-pretty">{lead}</p>
         </Reveal>
       )}
       {children}

@@ -22,7 +22,7 @@ export default function CategoriesPage() {
           const list = byCategory(c.slug);
           return (
             <Reveal key={c.slug} delay={0.04 * i}>
-              <Link href={`/categories/${c.slug}`} className="group grid items-center gap-8 overflow-hidden rounded-[36px] bg-soft p-8 transition hover:shadow-[0_40px_80px_-40px_rgb(0_0_0/0.3)] md:grid-cols-[1.2fr_1fr] md:p-12">
+              <Link href={`/categories/${c.slug}`} className="group grid items-center gap-8 overflow-hidden rounded-3xl bg-soft p-8 transition hover:shadow-[0_40px_80px_-40px_rgb(0_0_0/0.3)] md:grid-cols-[1.2fr_1fr] md:p-12">
                 <div className={i % 2 ? "md:order-2" : ""}>
                   <span className="mb-6 inline-grid h-12 w-12 place-items-center rounded-2xl bg-elev">
                     <CategoryIcon icon={c.icon} className="h-6 w-6" />

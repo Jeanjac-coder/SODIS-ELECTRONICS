@@ -19,13 +19,13 @@ export default function AboutPage() {
       <section className="container-x grid gap-4 md:grid-cols-3">
         {["/images/products/oled83c56la.webp", "/images/products/xl9t.webp", "/images/products/gcfb50fplam.webp"].map((src, i) => (
           <Reveal key={src} delay={i * 0.08} className={i === 0 ? "md:col-span-2" : ""}>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[32px] bg-soft md:aspect-auto md:h-[420px]">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-soft md:aspect-auto md:h-[420px]">
               <Image src={src} alt="" fill sizes="(max-width: 768px) 90vw, 50vw" className="object-contain p-12" />
             </div>
           </Reveal>
         ))}
       </section>
-      <section className="container-x mt-32 grid gap-10 lg:grid-cols-2">
+      <section className="container-x mt-24 grid gap-10 lg:grid-cols-2">
         <SectionHeading eyebrow="Mission" title="La qualité, chez nous, ce n'est pas palabre." className="mb-0" />
         <div className="space-y-5 text-[17px] leading-relaxed text-ink-soft">
           <p>Tout est parti d&apos;un constat simple : trop de clients achetaient du matériel sans garantie, sans conseil et sans suivi. Nous avons voulu faire autrement.</p>
@@ -33,12 +33,12 @@ export default function AboutPage() {
           <p>Aujourd&apos;hui, particuliers, familles, hôtels, bureaux et commerces nous font confiance pour équiper leur quotidien. Et on compte bien continuer à mériter cette confiance, livraison après livraison.</p>
         </div>
       </section>
-      <section className="container-x mt-32">
+      <section className="container-x mt-24">
         <SectionHeading eyebrow="Nos valeurs" title="Ce qui nous guide, chaque jour." />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {values.map((v, i) => (
             <Reveal key={v.title} delay={i * 0.06}>
-              <div className="h-full rounded-[28px] border border-line p-7">
+              <div className="h-full rounded-[20px] border border-line p-7">
                 <span className="font-display text-sm font-semibold text-secondary">0{i + 1}</span>
                 <h3 className="mt-4 text-[20px] font-semibold">{v.title}</h3>
                 <p className="mt-2 text-[14px] leading-relaxed text-muted">{v.text}</p>
@@ -47,7 +47,7 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
-      <section className="container-x mt-32">
+      <section className="container-x mt-24">
         <SectionHeading eyebrow="Timeline" title="Notre parcours." />
         <ol className="relative border-l border-line pl-8 md:pl-12">
           {timeline.map((t, i) => (

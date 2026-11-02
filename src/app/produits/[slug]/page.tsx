@@ -51,7 +51,7 @@ export default async function ProductPage({ params }: Props) {
         <div className="grid gap-10 lg:grid-cols-[1.25fr_1fr] lg:gap-16">
           {/* Visuel */}
           <Reveal scale={0.97} className="lg:sticky lg:top-24 lg:self-start">
-            <div className="relative grid aspect-square place-items-center overflow-hidden rounded-[40px] bg-soft">
+            <div className="relative grid aspect-square place-items-center overflow-hidden rounded-3xl bg-soft">
               <div aria-hidden className="absolute inset-[18%] rounded-full bg-elev/70 blur-3xl" />
               <Image src={p.image} alt={`${p.name} — ${p.model}`} fill priority sizes="(max-width: 1024px) 100vw, 55vw" className="object-contain p-[12%] drop-shadow-[0_40px_40px_rgb(0_0_0/0.18)]" />
               <div className="absolute left-6 top-6 flex gap-2">
@@ -66,7 +66,7 @@ export default async function ProductPage({ params }: Props) {
             <p className="eyebrow mb-4">
               {cat.name} · {p.family}
             </p>
-            <h1 className="font-display text-[clamp(2rem,4vw,3.25rem)] font-semibold leading-[1.05] tracking-[-0.03em]">{p.name}</h1>
+            <h1 className="font-display text-[clamp(1.75rem,3vw,2.5rem)] font-semibold leading-[1.1] tracking-[-0.025em]">{p.name}</h1>
             <p className="mt-3 text-[14px] text-muted">Référence : {p.model}</p>
             <p className="lead mt-6">{p.tagline}</p>
 
@@ -78,7 +78,7 @@ export default async function ProductPage({ params }: Props) {
 
             <div className="my-8 rounded-3xl bg-soft p-6">
               <p className="text-[13px] text-muted">Prix</p>
-              <p className="font-display text-3xl font-semibold tracking-tight">{p.price ? `${p.price.toLocaleString("fr-FR")} FCFA` : "Sur devis — réponse sous 24 h"}</p>
+              <p className="font-display text-2xl font-semibold tracking-tight">{p.price ? `${p.price.toLocaleString("fr-FR")} FCFA` : "Sur devis — réponse sous 24 h"}</p>
               <p className="mt-1 text-[13px] text-muted">Tarifs particuliers & entreprises · livraison et installation chiffrées dans le devis</p>
             </div>
 
@@ -120,7 +120,7 @@ export default async function ProductPage({ params }: Props) {
       </section>
 
       <section className="container-x mt-24 grid gap-8">
-        <div className="flex flex-col justify-between rounded-[28px] bg-primary p-8 text-white">
+        <div className="flex flex-col justify-between rounded-[20px] bg-primary p-8 text-white">
           <div>
             <p className="eyebrow mb-2">Besoin de conseil ?</p>
             <h3 className="font-display text-2xl font-semibold tracking-tight">Un expert SODIS vous répond.</h3>
@@ -138,7 +138,7 @@ export default async function ProductPage({ params }: Props) {
       </section>
 
       {related.length > 0 && (
-        <section className="container-x mt-32" aria-labelledby="rel-title">
+        <section className="container-x mt-24" aria-labelledby="rel-title">
           <p className="eyebrow mb-3">Dans la même famille</p>
           <h2 id="rel-title" className="h-section">
             Vous aimerez aussi

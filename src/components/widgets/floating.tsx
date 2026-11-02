@@ -6,27 +6,20 @@ import { useEffect, useState } from "react";
 import { site, waLink } from "@/config/site";
 import { useToasts } from "@/lib/store";
 import { cn } from "@/lib/utils";
-import { MessengerIcon, WhatsAppIcon } from "./icons";
+import { WhatsAppIcon } from "./icons";
 
-/** Boutons flottants : WhatsApp, Messenger, Assistant IA, retour en haut */
+/** Boutons flottants : WhatsApp, assistant, retour en haut */
 export function FloatingActions() {
   const [showTop, setShowTop] = useState(false);
-  const [tip, setTip] = useState(false);
 
   useEffect(() => {
     const on = () => setShowTop(window.scrollY > 900);
     window.addEventListener("scroll", on, { passive: true });
-    const t = setTimeout(() => setTip(true), 6000);
-    const t2 = setTimeout(() => setTip(false), 14000);
-    return () => {
-      window.removeEventListener("scroll", on);
-      clearTimeout(t);
-      clearTimeout(t2);
-    };
+    return () => window.removeEventListener("scroll", on);
   }, []);
 
   return (
-    <div className="no-print fixed bottom-5 right-4 z-[70] flex flex-col items-end gap-3 sm:right-6">
+    <div className="no-print fixed bottom-5 right-4 z-[70] flex flex-col items-end gap-2.5 sm:right-6">
       <AnimatePresence>
         {showTop && (
           <motion.button
@@ -38,51 +31,29 @@ export function FloatingActions() {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
             aria-label="Retour en haut"
-            className="glass grid h-11 w-11 place-items-center rounded-full border border-line text-ink shadow-lg"
+            className="grid h-10 w-10 place-items-center rounded-full border border-line bg-elev text-ink shadow-md"
           >
             <ArrowUp className="h-4 w-4" />
           </motion.button>
         )}
       </AnimatePresence>
-      <a
-        href={site.social.messenger}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Discuter sur Messenger"
-        className="hidden h-11 w-11 place-items-center rounded-full bg-gradient-to-br from-[#00B2FF] to-[#A033FF] text-white shadow-lg transition hover:scale-105 sm:grid"
-      >
-        <MessengerIcon className="h-5 w-5" />
-      </a>
       <button
         onClick={() => window.dispatchEvent(new Event("sodis:assistant"))}
         aria-label="Ouvrir l'assistant SODIS"
-        className="grid h-11 w-11 place-items-center rounded-full bg-primary text-white shadow-lg transition hover:scale-105"
+        title="Assistant SODIS"
+        className="grid h-10 w-10 place-items-center rounded-full bg-primary text-white shadow-md transition hover:scale-105"
       >
-        <Sparkles className="h-5 w-5" />
+        <Sparkles className="h-4 w-4" />
       </button>
-      <div className="relative flex items-center">
-        <AnimatePresence>
-          {tip && (
-            <motion.p
-              initial={{ opacity: 0, x: 10 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 10 }}
-              className="absolute right-[calc(100%+12px)] w-56 rounded-2xl bg-elev p-3 text-[13px] leading-snug text-ink shadow-xl ring-1 ring-line"
-            >
-              Une question ? On vous répond <strong>{site.responseTime.replace("≈ ", "en ~")}</strong> 💬
-            </motion.p>
-          )}
-        </AnimatePresence>
-        <a
-          href={waLink("Bonjour SODIS Electronics, je souhaite un renseignement.")}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Discuter sur WhatsApp"
-          className="wa-pulse grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-xl transition hover:scale-105"
-        >
-          <WhatsAppIcon className="h-7 w-7" />
-        </a>
-      </div>
+      <a
+        href={waLink("Bonjour SODIS Electronics, je souhaite un renseignement.")}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Discuter sur WhatsApp"
+        className="grid h-13 w-13 place-items-center rounded-full bg-[#25D366] text-white shadow-lg transition hover:scale-105"
+      >
+        <WhatsAppIcon className="h-6 w-6" />
+      </a>
     </div>
   );
 }

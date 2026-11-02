@@ -1,17 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ArrowRight, ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button";
-import { CategoryIcon } from "@/components/ui/misc";
-import { InlineSearch } from "@/components/widgets/search";
 import { HeroPromos } from "@/components/home/sections";
-import { categories } from "@/data/categories";
-import { waLink } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(useGSAP);
@@ -127,7 +122,7 @@ export function Hero() {
 
       <div className="container-x">
         {/* Bannières */}
-        <div className="group/hero relative aspect-[2/1] overflow-hidden rounded-[22px] bg-soft shadow-[0_40px_90px_-40px_rgb(37_48_96/0.55)] sm:rounded-[32px]" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+        <div className="group/hero relative aspect-[2/1] overflow-hidden rounded-2xl bg-soft sm:rounded-3xl" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
           {slides.map((x, k) => (
             <div key={x.image} className={cn("h-slide", `h-slide-${k}`, "absolute inset-0", k === i ? "z-10" : "pointer-events-none z-0 opacity-0")} aria-hidden={k !== i}>
               <div className="h-scroll absolute inset-0">
@@ -215,28 +210,9 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Promotions de la semaine + recherche intelligente + catégories rapides (glassmorphism) */}
-      <div className="container-x relative z-20 mt-6 pb-6">
-        <div className="glass rounded-[32px] border border-white/60 p-4 shadow-[0_30px_80px_-30px_rgb(0_0_0/0.25)] dark:border-white/10 sm:p-5">
-          <HeroPromos />
-          <div className="my-4 h-px bg-line/70" />
-          <InlineSearch />
-          <nav aria-label="Catégories rapides" className="no-scrollbar mt-4 flex gap-2 overflow-x-auto">
-            {categories.map((c) => (
-              <Link
-                key={c.slug}
-                href={`/categories/${c.slug}`}
-                className="group flex shrink-0 items-center gap-2.5 rounded-full border border-line/80 bg-elev/60 px-4 py-2.5 text-[13px] font-medium text-ink-soft transition hover:border-primary hover:text-ink"
-              >
-                <CategoryIcon icon={c.icon} className="h-4 w-4 transition group-hover:text-secondary" />
-                {c.name}
-              </Link>
-            ))}
-            <a href={waLink("Bonjour SODIS, j'aimerais être conseillé.")} target="_blank" rel="noopener noreferrer" className="flex shrink-0 items-center gap-2 rounded-full bg-[#25D366]/10 px-4 py-2.5 text-[13px] font-medium text-[#128C7E] transition hover:bg-[#25D366] hover:text-white">
-              Conseil WhatsApp
-            </a>
-          </nav>
-        </div>
+      {/* Promotions de la semaine */}
+      <div className="container-x mt-10">
+        <HeroPromos />
       </div>
       <style>{`@keyframes hero-progress{from{width:0}to{width:100%}}`}</style>
     </section>

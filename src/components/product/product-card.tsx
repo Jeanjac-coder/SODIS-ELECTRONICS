@@ -24,8 +24,8 @@ export function ProductCard({ product: p, index = 0, priority }: { product: Prod
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: (index % 4) * 0.06 }}
       className="group h-full"
     >
-      <TiltCard intensity={5} className="h-full rounded-[28px]">
-        <div className="relative flex h-full flex-col overflow-hidden rounded-[28px] border border-line bg-elev transition duration-500 group-hover:border-transparent group-hover:shadow-[0_30px_60px_-25px_rgb(0_0_0/0.25)]">
+      <TiltCard intensity={5} className="h-full rounded-[20px]">
+        <div className="relative flex h-full flex-col overflow-hidden rounded-[20px] border border-line bg-elev transition duration-500 group-hover:border-transparent group-hover:shadow-[0_30px_60px_-25px_rgb(0_0_0/0.25)]">
           <div className="relative aspect-[4/3.4] overflow-hidden bg-soft">
             <Link href={`/produits/${p.slug}`} aria-label={p.name} className="absolute inset-0 z-[1]" />
             <Image
@@ -123,7 +123,7 @@ function QuickAdd({ slug, name }: { slug: string; name: string }) {
 
 export function ProductCardSkeleton() {
   return (
-    <div className="overflow-hidden rounded-[28px] border border-line">
+    <div className="overflow-hidden rounded-[20px] border border-line">
       <div className="skeleton aspect-[4/3.4]" />
       <div className="space-y-3 p-5">
         <div className="skeleton h-3 w-1/3 rounded-full" />

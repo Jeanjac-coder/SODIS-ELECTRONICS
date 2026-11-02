@@ -91,7 +91,7 @@ export function InstallmentSimulator({ defaultPrice }: { defaultPrice?: number }
   const monthly = r > 0 ? (financed * r) / (1 - Math.pow(1 + r, -months)) : financed / months;
 
   return (
-    <div className="rounded-[28px] border border-line bg-elev p-6 sm:p-8">
+    <div className="rounded-[20px] border border-line bg-elev p-6 sm:p-8">
       <p className="eyebrow mb-2">Paiement échelonné</p>
       <h3 className="font-display text-2xl font-semibold tracking-tight">Simulez vos mensualités</h3>
       <div className="mt-6 space-y-6">
@@ -169,7 +169,7 @@ export function RecentlyViewed({ exclude }: { exclude?: string }) {
   const items = slugs.map(getProduct).filter(Boolean) as Product[];
   if (items.length < 2) return null;
   return (
-    <section className="container-x mt-32" aria-labelledby="recent-title">
+    <section className="container-x mt-24" aria-labelledby="recent-title">
       <p className="eyebrow mb-3">Votre historique</p>
       <h2 id="recent-title" className="h-section">
         Récemment consultés
